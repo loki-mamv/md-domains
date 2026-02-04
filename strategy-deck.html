@@ -18,342 +18,79 @@
             --font-display: 'Space Grotesk', sans-serif;
             --font-body: 'DM Sans', sans-serif;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); overflow-x: hidden; }
         .slide {
-            min-height: 100vh;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 60px 80px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            min-height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column;
+            justify-content: center; padding: 60px 80px; position: relative;
+            opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease;
         }
-
-        .slide.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-number {
-            position: absolute;
-            top: 40px;
-            right: 60px;
-            font-family: var(--font-display);
-            font-size: 14px;
-            color: var(--text-secondary);
-            letter-spacing: 2px;
-        }
-
-        h1 {
-            font-family: var(--font-display);
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        h2 {
-            font-family: var(--font-display);
-            font-size: clamp(36px, 5vw, 64px);
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 32px;
-        }
-
-        h3 {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--accent);
-        }
-
-        p {
-            font-size: 20px;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            max-width: 800px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .domain-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            color: var(--bg-primary);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 18px;
-            margin: 8px 8px 8px 0;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
-            margin-top: 40px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: var(--bg-secondary);
-            border-radius: 16px;
-            padding: 32px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .card h3 {
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            font-size: 16px;
-            color: var(--text-secondary);
-        }
-
-        .flywheel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 60vh;
-            position: relative;
-        }
-
-        .flywheel-center {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 24px;
-            text-align: center;
-            z-index: 10;
-            box-shadow: 0 0 60px rgba(16, 185, 129, 0.3);
-        }
-
-        .flywheel-item {
-            position: absolute;
-            background: var(--bg-secondary);
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 16px 24px;
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 16px;
-            white-space: nowrap;
-        }
-
+        .slide.visible { opacity: 1; transform: translateY(0); }
+        .slide-number { position: absolute; top: 40px; right: 60px; font-family: var(--font-display); font-size: 14px; color: var(--text-secondary); letter-spacing: 2px; }
+        h1 { font-family: var(--font-display); font-size: clamp(48px, 8vw, 96px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+        h2 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); font-weight: 600; line-height: 1.2; margin-bottom: 32px; }
+        h3 { font-family: var(--font-display); font-size: 28px; font-weight: 600; margin-bottom: 16px; color: var(--accent); }
+        h4 { font-family: var(--font-display); font-size: 20px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+        p { font-size: 20px; line-height: 1.6; color: var(--text-secondary); max-width: 800px; }
+        .subtitle { font-size: 24px; color: var(--text-secondary); margin-bottom: 40px; }
+        .gradient-text { background: linear-gradient(135deg, var(--accent), var(--accent-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .domain-badge { display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-secondary)); color: var(--bg-primary); padding: 8px 20px; border-radius: 100px; font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 8px 8px 8px 0; }
+        .domain-badge.com { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .domain-badge.hub { background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-secondary)); }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-top: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+        .card { background: var(--bg-secondary); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.1); }
+        .card h3 { color: var(--text-primary); margin-bottom: 12px; }
+        .card p { font-size: 16px; color: var(--text-secondary); }
+        .flywheel { display: flex; align-items: center; justify-content: center; height: 60vh; position: relative; }
+        .flywheel-center { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-secondary)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 24px; text-align: center; z-index: 10; box-shadow: 0 0 60px rgba(16, 185, 129, 0.3); }
+        .flywheel-item { position: absolute; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; padding: 16px 24px; font-family: var(--font-display); font-weight: 600; font-size: 16px; white-space: nowrap; }
         .flywheel-item:nth-child(2) { top: 10%; left: 50%; transform: translateX(-50%); }
         .flywheel-item:nth-child(3) { top: 30%; right: 10%; }
         .flywheel-item:nth-child(4) { bottom: 30%; right: 10%; }
         .flywheel-item:nth-child(5) { bottom: 10%; left: 50%; transform: translateX(-50%); }
         .flywheel-item:nth-child(6) { bottom: 30%; left: 10%; }
         .flywheel-item:nth-child(7) { top: 30%; left: 10%; }
-
-        .flywheel-arrow {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 3px dashed rgba(16, 185, 129, 0.3);
-            border-radius: 50%;
-            animation: spin 30s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 64px;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-top: 8px;
-        }
-
-        .revenue-table {
-            width: 100%;
-            margin-top: 32px;
-            border-collapse: collapse;
-        }
-
-        .revenue-table th,
-        .revenue-table td {
-            padding: 16px 24px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .revenue-table th {
-            font-family: var(--font-display);
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .revenue-table td {
-            color: var(--text-secondary);
-        }
-
-        .highlight {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .list {
-            list-style: none;
-            margin-top: 24px;
-        }
-
-        .list li {
-            padding: 12px 0;
-            padding-left: 32px;
-            position: relative;
-            font-size: 20px;
-            color: var(--text-secondary);
-        }
-
-        .list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* Navigation */
-        .nav-dots {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 100;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-dot:hover,
-        .nav-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-
-        .nav-dot .tooltip {
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-dot:hover .tooltip {
-            opacity: 1;
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            width: 0%;
-            z-index: 100;
-            transition: width 0.3s ease;
-        }
-
-        .keyboard-hint {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 14px;
-            color: var(--text-secondary);
-            opacity: 0.5;
-        }
-
+        .flywheel-arrow { position: absolute; width: 100%; height: 100%; border: 3px dashed rgba(16, 185, 129, 0.3); border-radius: 50%; animation: spin 30s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .stat { text-align: center; }
+        .stat-number { font-family: var(--font-display); font-size: 64px; font-weight: 700; color: var(--accent); }
+        .stat-label { font-size: 18px; color: var(--text-secondary); margin-top: 8px; }
+        .revenue-table { width: 100%; margin-top: 32px; border-collapse: collapse; }
+        .revenue-table th, .revenue-table td { padding: 16px 24px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .revenue-table th { font-family: var(--font-display); font-weight: 600; color: var(--accent); }
+        .revenue-table td { color: var(--text-secondary); }
+        .highlight { color: var(--text-primary); font-weight: 600; }
+        .list { list-style: none; margin-top: 24px; }
+        .list li { padding: 12px 0; padding-left: 32px; position: relative; font-size: 20px; color: var(--text-secondary); }
+        .list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+        .callout { margin-top: 48px; padding: 24px; background: var(--bg-secondary); border-radius: 12px; border-left: 4px solid var(--accent); }
+        .callout p { font-size: 22px; color: var(--text-primary); margin: 0; }
+        .callout-center { text-align: center; margin-top: 40px; padding: 20px; }
+        .risk-high { border-left-color: #ef4444; }
+        .risk-med { border-left-color: #f59e0b; }
+        .risk-low { border-left-color: var(--accent); }
+        .step-flow { display: flex; align-items: center; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+        .step-box { background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 24px; text-align: center; flex: 1; min-width: 140px; }
+        .step-box h4 { color: var(--accent); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .step-box p { font-size: 14px; margin: 0; max-width: none; }
+        .step-arrow { font-size: 24px; color: var(--accent); flex-shrink: 0; }
+        .nav-dots { position: fixed; right: 30px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+        .nav-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: all 0.3s ease; position: relative; }
+        .nav-dot:hover, .nav-dot.active { background: var(--accent); transform: scale(1.3); }
+        .nav-dot .tooltip { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: var(--bg-secondary); color: var(--text-primary); padding: 6px 12px; border-radius: 8px; font-size: 13px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .nav-dot:hover .tooltip { opacity: 1; }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-secondary)); width: 0%; z-index: 100; transition: width 0.3s ease; }
+        .keyboard-hint { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 14px; color: var(--text-secondary); opacity: 0.5; }
         @media (max-width: 768px) {
-            .slide {
-                padding: 40px 24px;
-            }
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            .flywheel-item {
-                font-size: 12px;
-                padding: 12px 16px;
-            }
+            .slide { padding: 40px 24px; }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .flywheel-item { font-size: 12px; padding: 12px 16px; }
+            .stat-number { font-size: 48px; }
+            .step-flow { flex-direction: column; }
+            .step-arrow { transform: rotate(90deg); }
         }
     </style>
 </head>
@@ -362,66 +99,110 @@
 
     <nav class="nav-dots" id="nav">
         <div class="nav-dot active" data-slide="0"><span class="tooltip">Intro</span></div>
-        <div class="nav-dot" data-slide="1"><span class="tooltip">The Thesis</span></div>
-        <div class="nav-dot" data-slide="2"><span class="tooltip">Why .MD?</span></div>
-        <div class="nav-dot" data-slide="3"><span class="tooltip">The Data</span></div>
-        <div class="nav-dot" data-slide="4"><span class="tooltip">The Portfolio</span></div>
-        <div class="nav-dot" data-slide="5"><span class="tooltip">Network Effect</span></div>
-        <div class="nav-dot" data-slide="6"><span class="tooltip">Cross-Linking</span></div>
-        <div class="nav-dot" data-slide="7"><span class="tooltip">Newsletter</span></div>
-        <div class="nav-dot" data-slide="8"><span class="tooltip">Newsletter Revenue</span></div>
-        <div class="nav-dot" data-slide="9"><span class="tooltip">The Flywheel</span></div>
-        <div class="nav-dot" data-slide="10"><span class="tooltip">Monetization</span></div>
-        <div class="nav-dot" data-slide="11"><span class="tooltip">Market Size</span></div>
-        <div class="nav-dot" data-slide="12"><span class="tooltip">AI Q&A Moat</span></div>
-        <div class="nav-dot" data-slide="13"><span class="tooltip">Execution Plan</span></div>
-        <div class="nav-dot" data-slide="14"><span class="tooltip">Why Now</span></div>
-        <div class="nav-dot" data-slide="15"><span class="tooltip">Next Steps</span></div>
+        <div class="nav-dot" data-slide="1"><span class="tooltip">Thesis</span></div>
+        <div class="nav-dot" data-slide="2"><span class="tooltip">The Math</span></div>
+        <div class="nav-dot" data-slide="3"><span class="tooltip">Why .MD?</span></div>
+        <div class="nav-dot" data-slide="4"><span class="tooltip">The Data</span></div>
+        <div class="nav-dot" data-slide="5"><span class="tooltip">Portfolio</span></div>
+        <div class="nav-dot" data-slide="6"><span class="tooltip">Network</span></div>
+        <div class="nav-dot" data-slide="7"><span class="tooltip">Cross-Linking</span></div>
+        <div class="nav-dot" data-slide="8"><span class="tooltip">Newsletter</span></div>
+        <div class="nav-dot" data-slide="9"><span class="tooltip">Newsletter $</span></div>
+        <div class="nav-dot" data-slide="10"><span class="tooltip">Platform</span></div>
+        <div class="nav-dot" data-slide="11"><span class="tooltip">Flywheel</span></div>
+        <div class="nav-dot" data-slide="12"><span class="tooltip">Revenue</span></div>
+        <div class="nav-dot" data-slide="13"><span class="tooltip">Market</span></div>
+        <div class="nav-dot" data-slide="14"><span class="tooltip">Editorial</span></div>
+        <div class="nav-dot" data-slide="15"><span class="tooltip">Content Engine</span></div>
+        <div class="nav-dot" data-slide="16"><span class="tooltip">Site System</span></div>
+        <div class="nav-dot" data-slide="17"><span class="tooltip">AI Q&A</span></div>
+        <div class="nav-dot" data-slide="18"><span class="tooltip">Competition</span></div>
+        <div class="nav-dot" data-slide="19"><span class="tooltip">Risks</span></div>
+        <div class="nav-dot" data-slide="20"><span class="tooltip">Execution</span></div>
+        <div class="nav-dot" data-slide="21"><span class="tooltip">Why Now</span></div>
+        <div class="nav-dot" data-slide="22"><span class="tooltip">Next Steps</span></div>
     </nav>
 
     <!-- Slide 1: Title -->
     <section class="slide" data-title="Intro">
-        <span class="slide-number">01 / 16</span>
+        <span class="slide-number">01 / 23</span>
         <h1><span class="gradient-text">.MD</span> Domains</h1>
-        <p class="subtitle">A content + AI play for healthcare authority</p>
-        <p>Build authoritative health content sites on memorable domains.<br>Add AI Q&A to drive engagement. Monetize via sponsorships & partnerships.</p>
+        <p class="subtitle">Evidence-based health content on memorable domains</p>
+        <p>Build authoritative, medically-cited health content sites on premium .md domains.<br>Monetize via sponsorships, affiliate partnerships, and newsletter revenue.</p>
     </section>
 
     <!-- Slide 2: The Thesis -->
     <section class="slide" data-title="The Thesis">
-        <span class="slide-number">02 / 16</span>
+        <span class="slide-number">02 / 23</span>
         <h2>The Thesis</h2>
         <div class="grid-2">
             <div>
                 <h3>The Opportunity</h3>
                 <ul class="list">
-                    <li>.md domains are cheap (~$100-150/year)</li>
-                    <li>Healthcare content is high-value (high CPMs)</li>
-                    <li>Memorable URLs = direct traffic over time</li>
-                    <li>AI Q&A creates sticky, indexable content</li>
+                    <li>.md domains are cheap ($27.53/year each)</li>
+                    <li>Healthcare content is high-value (highest CPMs on the web)</li>
+                    <li>Memorable, brandable URLs = direct traffic over time</li>
+                    <li>Network of 25 interlinked health sites compounds authority</li>
                 </ul>
             </div>
             <div>
                 <h3>The Arbitrage</h3>
                 <ul class="list">
-                    <li>Domain cost: $100-150/year</li>
-                    <li>Content creation: Near-zero (AI-generated)</li>
-                    <li>Sponsorship value: $5K-50K+/month</li>
-                    <li>Domain appreciation: 10-100x potential</li>
+                    <li>Full portfolio cost: ~$688/year</li>
+                    <li>Content: Research-backed, editorially reviewed</li>
+                    <li>Sponsorship value: $5K-50K+/month per site</li>
+                    <li>Domain appreciation: 10-100x cost</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Slide 3: Why .MD? -->
+    <!-- Slide 3: The Math -->
+    <section class="slide" data-title="The Math">
+        <span class="slide-number">03 / 23</span>
+        <h2>The Investment</h2>
+        <p class="subtitle">The cost-to-upside ratio is absurd.</p>
+        <div class="grid-3">
+            <div class="stat">
+                <div class="stat-number">$27</div>
+                <div class="stat-label">Per domain / year</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$688</div>
+                <div class="stat-label">Entire 25-domain portfolio / year</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$0</div>
+                <div class="stat-label">Hosting (GitHub Pages)</div>
+            </div>
+        </div>
+        <div style="margin-top: 48px;">
+            <table class="revenue-table">
+                <tr><th>Category</th><th>Details</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+                <tr><td class="highlight">Domains (.md × 25)</td><td>$27.53/yr each via nic.md</td><td>$688</td><td>$688</td><td>$688</td></tr>
+                <tr><td class="highlight">Hosting</td><td>GitHub Pages (free CDN, SSL)</td><td>$0</td><td>$0</td><td>$0</td></tr>
+                <tr><td class="highlight">Beehiiv</td><td>Free → Scale ($43/mo) → Max ($96/mo)</td><td>~$260</td><td>~$520</td><td>~$1,150</td></tr>
+                <tr><td class="highlight">Google Workspace</td><td>Newsletter email ($7.20/mo)</td><td>$86</td><td>$86</td><td>$86</td></tr>
+                <tr><td class="highlight">Analytics</td><td>GA4 + Google Search Console</td><td>$0</td><td>$0</td><td>$0</td></tr>
+                <tr><td class="highlight">Q&A Widget (Gemini Flash)</td><td>$0.10/1M in + $0.40/1M out tokens</td><td>$0</td><td>~$200</td><td>~$1,300</td></tr>
+                <tr style="border-top: 2px solid rgba(255,255,255,0.2);"><td class="highlight">Total Cost</td><td></td><td class="highlight">~$1,034</td><td class="highlight">~$1,494</td><td class="highlight">~$3,224</td></tr>
+                <tr style="border-top: 2px solid var(--accent);"><td class="highlight" style="color: var(--accent);">Revenue Target</td><td></td><td class="highlight" style="color: var(--accent);">$5K-10K</td><td class="highlight" style="color: var(--accent);">$25K-60K</td><td class="highlight" style="color: var(--accent);">$100K-300K</td></tr>
+            </table>
+        </div>
+        <div class="callout" style="margin-top: 32px;">
+            <p><strong>Year 1 all-in: ~$1,034.</strong> Even a single sponsorship deal covers 5+ years of operating costs.</p>
+        </div>
+    </section>
+
+    <!-- Slide 4: Why .MD? -->
     <section class="slide" data-title="Why .MD?">
-        <span class="slide-number">03 / 16</span>
+        <span class="slide-number">04 / 23</span>
         <h2>Why <span class="gradient-text">.MD</span>?</h2>
         <p class="subtitle">Two powerful associations in one domain extension</p>
         <div class="grid-2">
             <div class="card">
                 <h3>🩺 MD = Medical Doctor</h3>
-                <p>The .md extension instantly signals medical credibility. For health content, <strong>anxiety.md</strong> reads like a doctor's note, not a random website.</p>
+                <p>The .md extension instantly signals medical credibility. <strong>anxiety.md</strong> reads like a clinical reference, not a random blog.</p>
                 <ul class="list" style="margin-top: 16px;">
                     <li>Subconscious authority signal</li>
                     <li>Higher trust for health topics</li>
@@ -431,7 +212,7 @@
             </div>
             <div class="card">
                 <h3>📄 .md = Markdown Files</h3>
-                <p>In the AI era, .md files are everywhere. Every AI tool, every developer, every knowledge base uses markdown.</p>
+                <p>In the AI era, .md files are everywhere. Every developer, every knowledge base, every documentation system uses markdown.</p>
                 <ul class="list" style="margin-top: 16px;">
                     <li>ChatGPT, Claude, Cursor — all .md native</li>
                     <li>GitHub READMEs, docs, wikis</li>
@@ -440,25 +221,23 @@
                 </ul>
             </div>
         </div>
-        <p style="margin-top: 40px; text-align: center; font-size: 24px; color: var(--text-primary);">
-            <strong>One TLD. Two audiences. Zero competition.</strong>
-        </p>
+        <p style="margin-top: 40px; text-align: center; font-size: 24px; color: var(--text-primary);"><strong>One TLD. Two audiences. Zero competition.</strong></p>
     </section>
 
-    <!-- Slide 4: The Data -->
+    <!-- Slide 5: The Data -->
     <section class="slide" data-title="The Data">
-        <span class="slide-number">04 / 16</span>
+        <span class="slide-number">05 / 23</span>
         <h2>The Data</h2>
-        <p class="subtitle">Markdown adoption is exploding. .md site traffic proves the model works.</p>
+        <p class="subtitle">Markdown is exploding. .md sites prove the model works.</p>
         <div class="grid-2">
             <div>
-                <h3>📈 Markdown + AI Adoption</h3>
+                <h3>📈 Markdown in the AI Era</h3>
                 <ul class="list">
                     <li><strong>40% token savings</strong> vs HTML for AI models</li>
-                    <li><strong>37% faster inference</strong> on Markdown docs (LLaMA)</li>
-                    <li><strong>58% better task completion</strong> with .md prompts</li>
+                    <li><strong>37% faster inference</strong> on Markdown docs</li>
                     <li><strong>90% of developers</strong> now use AI tools (+14% YoY)</li>
                     <li>Microsoft open-sourced <strong>MarkItDown</strong> (Dec 2024)</li>
+                    <li>.md is the lingua franca of modern knowledge</li>
                 </ul>
             </div>
             <div>
@@ -472,17 +251,15 @@
                 </ul>
             </div>
         </div>
-        <div style="margin-top: 48px; padding: 24px; background: var(--bg-secondary); border-radius: 12px; border-left: 4px solid var(--accent);">
-            <p style="font-size: 22px; color: var(--text-primary); margin: 0;">
-                <strong>The Gap:</strong> obsidian.md proves a .md site can reach millions. Health-focused .md domains remain untapped.
-            </p>
+        <div class="callout">
+            <p><strong>The Gap:</strong> obsidian.md proves a .md site can reach millions. Health-focused .md domains remain untapped.</p>
         </div>
     </section>
 
-    <!-- Slide 5: Target Domains -->
-    <section class="slide" data-title="Target Domains">
-        <span class="slide-number">05 / 16</span>
-        <h2>The Portfolio (24 domains)</h2>
+    <!-- Slide 6: The Portfolio -->
+    <section class="slide" data-title="The Portfolio">
+        <span class="slide-number">06 / 23</span>
+        <h2>The Portfolio (25 domains)</h2>
         
         <h3 style="margin-top: 24px; color: var(--accent);">Hub Brand</h3>
         <div style="margin-bottom: 24px;">
@@ -491,6 +268,7 @@
         
         <h3>Mental Health</h3>
         <div style="margin-bottom: 20px;">
+            <span class="domain-badge hub">mental.md</span>
             <span class="domain-badge">anxiety.md</span>
             <span class="domain-badge">depression.md</span>
             <span class="domain-badge">bipolar.md</span>
@@ -499,10 +277,10 @@
             <span class="domain-badge">insomnia.md</span>
         </div>
         
-        <h3>GLP-1 / Weight</h3>
+        <h3>GLP-1 / Weight Management</h3>
         <div style="margin-bottom: 20px;">
+            <span class="domain-badge hub">glp1.md</span>
             <span class="domain-badge">ozempic.md</span>
-            <span class="domain-badge">wegovy.md</span>
             <span class="domain-badge">mounjaro.md</span>
             <span class="domain-badge">calories.md</span>
         </div>
@@ -527,80 +305,81 @@
             <span class="domain-badge">fhir.md</span>
             <span class="domain-badge">hipaa.md</span>
         </div>
+        <p style="margin-top: 24px; font-size: 16px; color: var(--text-secondary);">
+            <strong style="color: var(--accent-tertiary);">Purple</strong> = cluster hub domain (category-level entry point)
+        </p>
     </section>
 
-    <!-- Slide 6: The Network Effect -->
+    <!-- Slide 7: The Network Effect -->
     <section class="slide" data-title="Network Effect">
-        <span class="slide-number">06 / 16</span>
+        <span class="slide-number">07 / 23</span>
         <h2>The Network Effect</h2>
-        <p class="subtitle"><strong style="color: var(--accent);">thrive.md</strong> as the hub — 23 specialized sites feeding into one brand</p>
+        <p class="subtitle">Hub-and-spoke architecture with <strong style="color: var(--accent);">cluster sub-hubs</strong></p>
         <div class="grid-2">
             <div class="card">
-                <h3>Central Hub: thrive.md</h3>
-                <p><strong>thrive.md</strong> is the front door. Aggregates content from all sites, hosts the primary AI Q&A, and builds the master email list. Every site links back to Thrive.</p>
+                <h3>Master Hub: thrive.md</h3>
+                <p>The front door. Aggregates content from all sites, hosts the primary Q&A, and builds the master email list. Every site links back to Thrive.</p>
             </div>
             <div class="card">
-                <h3>Spoke Sites</h3>
-                <p>Each condition/topic site (anxiety.md, ozempic.md, etc.) goes deep on one subject. Links to thrive.md for broader questions and to sibling sites for related topics.</p>
+                <h3>Cluster Sub-Hubs</h3>
+                <p><strong>mental.md</strong> owns mental health (anxiety, depression, bipolar, ptsd, ocd, insomnia). <strong>glp1.md</strong> owns GLP-1/weight. Sub-hubs feed up to Thrive and down to condition sites.</p>
             </div>
             <div class="card">
                 <h3>Cross-Cluster Bridges</h3>
-                <p>Mental health → insomnia (sleep). GLP-1 drugs → thyroid (metabolism). Procedures → conditions (mammogram → anxiety). Traffic flows between clusters.</p>
+                <p>Mental health → insomnia (sleep). GLP-1 drugs → thyroid (metabolism). Procedures → conditions (mammogram → anxiety). Traffic flows between clusters organically.</p>
             </div>
             <div class="card">
                 <h3>Backlink Compounding</h3>
-                <p>B2B sites (fhir, hipaa, emr) earn links from health tech blogs. Consumer sites get listicle features. Internal links pass authority across the network.</p>
+                <p>B2B sites (fhir.md, hipaa.md, emr.md) earn links from health tech publications. Consumer sites get listicle features. Internal links pass authority across the entire network.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 7: Cross-Linking Strategy -->
+    <!-- Slide 8: Cross-Linking Strategy -->
     <section class="slide" data-title="Cross-Linking">
-        <span class="slide-number">07 / 16</span>
+        <span class="slide-number">08 / 23</span>
         <h2>The Thrive Network</h2>
         <div class="grid-2" style="align-items: start;">
             <div>
                 <h3 style="margin-bottom: 20px;">User Journey Example</h3>
                 <ul class="list">
-                    <li>User searches "am I depressed or just tired"</li>
-                    <li>Lands on <strong>depression.md</strong> via Google</li>
-                    <li>Content mentions sleep issues → links to <strong>insomnia.md</strong></li>
-                    <li>Footer/nav promotes <strong>thrive.md</strong> for broader health questions</li>
-                    <li>User signs up for Thrive newsletter → captured lead</li>
-                    <li>Thrive emails drive traffic back to spoke sites</li>
+                    <li>User searches "anxiety vs depression differences"</li>
+                    <li>Lands on <strong>mental.md</strong> comparison article via Google</li>
+                    <li>Clicks through to <strong>anxiety.md</strong> for treatment options</li>
+                    <li>Sidebar links to <strong>insomnia.md</strong> (comorbid condition)</li>
+                    <li>Footer promotes <strong>thrive.md</strong> newsletter</li>
+                    <li>User subscribes → segmented into mental health interest list</li>
                 </ul>
             </div>
             <div>
-                <h3 style="margin-bottom: 20px;">Hub Benefits</h3>
+                <h3 style="margin-bottom: 20px;">Why This Works</h3>
                 <ul class="list">
-                    <li><strong>Single brand</strong> to market and build awareness for</li>
-                    <li><strong>Master email list</strong> collected at thrive.md</li>
-                    <li><strong>Sponsor hub</strong> — sell packages across the network</li>
-                    <li><strong>Authority aggregator</strong> — backlinks to Thrive lift all sites</li>
-                    <li><strong>Content syndication</strong> — Thrive summarizes spoke content</li>
+                    <li><strong>Single brand</strong> to market (Thrive)</li>
+                    <li><strong>Master email list</strong> with interest-based segments</li>
+                    <li><strong>Sponsor packages</strong> sold across the network</li>
+                    <li><strong>SEO authority</strong> — internal links multiply rankings</li>
+                    <li><strong>Each new site</strong> strengthens every other site</li>
                 </ul>
             </div>
         </div>
-        <div style="margin-top: 40px; padding: 20px; background: var(--bg-secondary); border-radius: 12px; border-left: 4px solid var(--accent); text-align: center;">
-            <p style="font-size: 20px; color: var(--text-primary); margin: 0;">
-                <strong>thrive.md</strong> — The brand. The hub. The email list.
-            </p>
+        <div class="callout callout-center">
+            <p><strong>thrive.md</strong> — The brand. The hub. The email list.</p>
         </div>
     </section>
 
-    <!-- Slide 8: Newsletter Strategy -->
+    <!-- Slide 9: Newsletter Strategy -->
     <section class="slide" data-title="Newsletter">
-        <span class="slide-number">08 / 16</span>
+        <span class="slide-number">09 / 23</span>
         <h2>The Thrive Newsletter</h2>
         <p class="subtitle">Own the audience. Don't rent it from Google.</p>
         <div class="grid-2">
             <div class="card">
                 <h3>Capture Everywhere</h3>
-                <p>Every spoke site has a Thrive newsletter signup. User reads about anxiety → subscribes to "Thrive Mental Health." All lists feed into one master database with tags.</p>
+                <p>Every site has a Thrive newsletter signup. User reads about anxiety → subscribes to "Thrive Mental Health." All lists feed into one master database with tags.</p>
             </div>
             <div class="card">
                 <h3>Segmented Content</h3>
-                <p>Tag subscribers by entry point and interests. Send targeted content: GLP-1 updates to ozempic.md signups, mental health tips to anxiety.md signups. Relevance = retention.</p>
+                <p>Tag subscribers by entry point and interests. GLP-1 updates to ozempic.md signups. Mental health tips to anxiety.md signups. Relevance drives retention.</p>
             </div>
             <div class="card">
                 <h3>Traffic Flywheel</h3>
@@ -608,18 +387,18 @@
             </div>
             <div class="card">
                 <h3>Sponsor Revenue</h3>
-                <p>Sell newsletter sponsorships: "This week's Thrive is brought to you by BetterHelp." Health newsletter CPMs are $30-50+. 100K list = $3-5K per send.</p>
+                <p>Health newsletter CPMs are $30-50+. "This week's Thrive is brought to you by BetterHelp." 100K list = $3-5K per send. Segmented lists command premium rates.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 9: Newsletter Monetization -->
+    <!-- Slide 10: Newsletter Revenue -->
     <section class="slide" data-title="Newsletter Revenue">
-        <span class="slide-number">09 / 16</span>
+        <span class="slide-number">10 / 23</span>
         <h2>Newsletter Revenue Model</h2>
         <div class="grid-3">
             <div class="stat">
-                <div class="stat-number">24</div>
+                <div class="stat-number">25</div>
                 <div class="stat-label">Sites capturing emails</div>
             </div>
             <div class="stat">
@@ -634,86 +413,87 @@
         <div style="margin-top: 48px;">
             <h3>Growth Projection</h3>
             <table class="revenue-table">
-                <tr>
-                    <th>Timeline</th>
-                    <th>List Size</th>
-                    <th>Sends/Month</th>
-                    <th>Revenue Potential</th>
-                </tr>
-                <tr>
-                    <td>Month 6</td>
-                    <td>10,000</td>
-                    <td>8</td>
-                    <td class="highlight">$2,400-4,000/mo</td>
-                </tr>
-                <tr>
-                    <td>Month 12</td>
-                    <td>50,000</td>
-                    <td>8</td>
-                    <td class="highlight">$12,000-20,000/mo</td>
-                </tr>
-                <tr>
-                    <td>Month 24</td>
-                    <td>250,000</td>
-                    <td>12</td>
-                    <td class="highlight">$90,000-150,000/mo</td>
-                </tr>
+                <tr><th>Timeline</th><th>List Size</th><th>Sends/Month</th><th>Revenue Potential</th></tr>
+                <tr><td>Month 6</td><td>10,000</td><td>8</td><td class="highlight">$2,400-4,000/mo</td></tr>
+                <tr><td>Month 12</td><td>50,000</td><td>8</td><td class="highlight">$12,000-20,000/mo</td></tr>
+                <tr><td>Month 24</td><td>250,000</td><td>12</td><td class="highlight">$90,000-150,000/mo</td></tr>
             </table>
         </div>
     </section>
 
-    <!-- Slide 10: The Flywheel -->
+    <!-- Slide 11: Newsletter Platform (NEW) -->
+    <section class="slide" data-title="Newsletter Platform">
+        <span class="slide-number">11 / 23</span>
+        <h2>Platform: Beehiiv</h2>
+        <p class="subtitle">Built for newsletter businesses. Not an afterthought.</p>
+        <div class="grid-2">
+            <div>
+                <h3>Why Beehiiv</h3>
+                <ul class="list">
+                    <li><strong>Built-in Ad Network</strong> — monetize from day one without chasing sponsors</li>
+                    <li><strong>Multi-publication support</strong> — up to 10 newsletters on one account (Thrive + verticals)</li>
+                    <li><strong>Segmentation & automations</strong> — tag by entry site, drip sequences per vertical</li>
+                    <li><strong>API access</strong> — programmatically add subscribers from all 25 sites</li>
+                    <li><strong>Referral program</strong> — subscribers earn rewards for sharing, organic growth</li>
+                    <li><strong>Custom domains</strong> — newsletter.thrive.md for brand consistency</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Pricing (Scales With Us)</h3>
+                <table class="revenue-table" style="margin-top: 0;">
+                    <tr><th>Plan</th><th>Cost</th><th>Subs</th></tr>
+                    <tr><td class="highlight">Launch (Start)</td><td style="color: var(--accent);">Free</td><td>Up to 2,500</td></tr>
+                    <tr><td class="highlight">Scale</td><td>$43/mo</td><td>Up to 100K</td></tr>
+                    <tr><td class="highlight">Max</td><td>$96/mo</td><td>Up to 100K</td></tr>
+                    <tr><td class="highlight">Enterprise</td><td>Custom</td><td>100K+</td></tr>
+                </table>
+                <div class="callout" style="margin-top: 24px; padding: 16px;">
+                    <p style="font-size: 16px;">Start free. Upgrade to Scale (~month 4-6) when we hit 2,500 subs and want ad network. Max when we need 10 publications for vertical newsletters.</p>
+                </div>
+                <div style="margin-top: 16px;">
+                    <h4 style="font-size: 16px; color: var(--accent); margin-bottom: 8px;">Projected Cost</h4>
+                    <p style="font-size: 14px;">Year 1: ~$260 (free start + 6mo Scale)<br>Year 2: ~$520 (Scale full year)<br>Year 3: ~$1,150 (Max for multi-publication)</p>
+                </div>
+            </div>
+        </div>
+        <div class="callout" style="margin-top: 32px;">
+            <p><strong>vs. alternatives:</strong> Mailchimp is expensive at scale and not newsletter-native. Substack takes 10% of paid subs. ConvertKit lacks ad network. Beehiiv was built specifically for what we're doing.</p>
+        </div>
+    </section>
+
+    <!-- Slide 12: The Flywheel -->
     <section class="slide" data-title="The Flywheel">
-        <span class="slide-number">10 / 16</span>
+        <span class="slide-number">12 / 23</span>
         <h2 style="text-align: center;">The Flywheel</h2>
         <div class="flywheel">
             <div class="flywheel-arrow"></div>
             <div class="flywheel-center">Traffic<br>Compounds</div>
-            <div class="flywheel-item">1. Authoritative Content</div>
-            <div class="flywheel-item">2. AI Q&A Widget</div>
-            <div class="flywheel-item">3. User Questions → Content</div>
+            <div class="flywheel-item">1. Evidence-Based Content</div>
+            <div class="flywheel-item">2. Medical Citations Build Trust</div>
+            <div class="flywheel-item">3. User Q&A → New Content</div>
             <div class="flywheel-item">4. Long-tail SEO Growth</div>
             <div class="flywheel-item">5. Sponsor Revenue</div>
             <div class="flywheel-item">6. Reinvest in Content</div>
         </div>
     </section>
 
-    <!-- Slide 11: Monetization -->
+    <!-- Slide 13: Monetization -->
     <section class="slide" data-title="Monetization">
-        <span class="slide-number">11 / 16</span>
+        <span class="slide-number">13 / 23</span>
         <h2>Revenue Streams</h2>
         <table class="revenue-table">
-            <tr>
-                <th>Stream</th>
-                <th>Model</th>
-                <th>Potential</th>
-            </tr>
-            <tr>
-                <td class="highlight">Sponsorships</td>
-                <td>Pharma, telehealth, health tech pay for placement</td>
-                <td class="highlight">$5K-50K/mo per site</td>
-            </tr>
-            <tr>
-                <td class="highlight">Affiliate</td>
-                <td>Telehealth signups, apps, supplements</td>
-                <td class="highlight">$50-200 per conversion</td>
-            </tr>
-            <tr>
-                <td class="highlight">Lead Gen</td>
-                <td>B2B sites sell qualified leads to SaaS</td>
-                <td class="highlight">$100-500 per lead</td>
-            </tr>
-            <tr>
-                <td class="highlight">Domain Sale</td>
-                <td>Build traffic → sell domain at premium</td>
-                <td class="highlight">10-100x cost</td>
-            </tr>
+            <tr><th>Stream</th><th>Model</th><th>Potential</th></tr>
+            <tr><td class="highlight">Sponsorships</td><td>Pharma, telehealth, health tech pay for placement on high-traffic sites</td><td class="highlight">$5K-50K/mo per site</td></tr>
+            <tr><td class="highlight">Affiliate</td><td>Telehealth signups, wellness apps, supplement brands</td><td class="highlight">$50-200 per conversion</td></tr>
+            <tr><td class="highlight">Newsletter</td><td>Thrive newsletter sponsors + Beehiiv Ad Network</td><td class="highlight">$3-5K per send at scale</td></tr>
+            <tr><td class="highlight">Lead Gen (B2B)</td><td>emr.md, fhir.md, hipaa.md sell qualified leads to health tech SaaS</td><td class="highlight">$100-500 per lead</td></tr>
+            <tr><td class="highlight">Domain Appreciation</td><td>Build traffic + authority → domain value increases 10-100x</td><td class="highlight">$2.5K-250K+ per domain</td></tr>
         </table>
     </section>
 
-    <!-- Slide 12: Market Size -->
+    <!-- Slide 14: Market Size -->
     <section class="slide" data-title="Market Size">
-        <span class="slide-number">12 / 16</span>
+        <span class="slide-number">14 / 23</span>
         <h2>Why Healthcare Content?</h2>
         <div class="grid-3">
             <div class="stat">
@@ -729,109 +509,361 @@
                 <div class="stat-label">Health content CPM</div>
             </div>
         </div>
-        <p style="margin-top: 48px; text-align: center;">
-            Healthcare is YMYL (Your Money Your Life) — Google rewards authoritative sources.<br>
-            Memorable .md domains + quality content = long-term ranking potential.
-        </p>
-    </section>
-
-    <!-- Slide 13: AI Q&A Moat -->
-    <section class="slide" data-title="AI Q&A Moat">
-        <span class="slide-number">13 / 16</span>
-        <h2>The AI Q&A Moat</h2>
-        <div class="grid-2">
+        <div class="grid-3" style="margin-top: 48px;">
             <div class="card">
-                <h3>🤖 How It Works</h3>
-                <p>Embed an AI chatbot on each site. Users ask health questions. AI provides helpful, cited answers with clear disclaimers.</p>
+                <h3>YMYL = High Bar, High Reward</h3>
+                <p>Google classifies health as "Your Money Your Life" — the bar for ranking is high. But sites that earn trust get <strong>durable, defensible rankings</strong> that generic content farms can't touch.</p>
             </div>
             <div class="card">
-                <h3>📈 Content Generation</h3>
-                <p>Every question becomes indexed content. Real user queries = perfect long-tail keywords. Auto-generates FAQ pages.</p>
+                <h3>GLP-1 Boom</h3>
+                <p>GLP-1 drugs are a $50B+ market growing 40%+ YoY. Ozempic, Mounjaro — millions search monthly. <strong>glp1.md</strong> as category hub captures this demand.</p>
             </div>
             <div class="card">
-                <h3>⏱️ Engagement</h3>
-                <p>Q&A increases time-on-site 3-5x. More engagement = better rankings = more traffic. Flywheel spins faster.</p>
-            </div>
-            <div class="card">
-                <h3>🔒 Defensibility</h3>
-                <p>Competitors can copy content. They can't copy your proprietary Q&A dataset. First-mover advantage compounds.</p>
+                <h3>Mental Health Surge</h3>
+                <p>Post-COVID mental health searches are at all-time highs. "Anxiety" alone: 40M+ monthly searches. Stigma is dropping. <strong>mental.md</strong> as category hub captures this wave.</p>
             </div>
         </div>
     </section>
 
-    <!-- Slide 14: Execution Plan -->
+    <!-- Slide 15: Editorial Trust -->
+    <section class="slide" data-title="Editorial Trust">
+        <span class="slide-number">15 / 23</span>
+        <h2>Editorial Standards</h2>
+        <p class="subtitle">Every claim cited. Every page disclaimed. Trust is the product.</p>
+        <div class="grid-2">
+            <div class="card">
+                <h3>📚 Medical Literature Citations</h3>
+                <p>All health content cites peer-reviewed sources: PubMed, NIH, Mayo Clinic, WHO guidelines, clinical trial data. Inline citations with linked references section on every article.</p>
+                <ul class="list" style="margin-top: 16px;">
+                    <li>PubMed / NCBI as primary source</li>
+                    <li>FDA prescribing information for drugs</li>
+                    <li>Clinical practice guidelines (APA, AHA, etc.)</li>
+                    <li>Cochrane systematic reviews when available</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>⚖️ Disclaimers & Compliance</h3>
+                <p>Clear medical disclaimers on every page. Content is educational — not medical advice. Full transparency on sponsorships and affiliate relationships.</p>
+                <ul class="list" style="margin-top: 16px;">
+                    <li>"Not a substitute for professional medical advice"</li>
+                    <li>FTC-compliant affiliate disclosures</li>
+                    <li>Sponsored content clearly labeled</li>
+                    <li>Privacy policy + terms on all sites</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🔍 E-E-A-T Signals</h3>
+                <p>Google's Experience, Expertise, Authoritativeness, Trustworthiness — the ranking factors that matter most for health content.</p>
+                <ul class="list" style="margin-top: 16px;">
+                    <li>Named author bios with credentials</li>
+                    <li>"Medically reviewed by" badges</li>
+                    <li>Last-updated timestamps on all content</li>
+                    <li>Structured data (MedicalWebPage schema)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🏥 Medical Review Process</h3>
+                <p>Content goes through editorial review before publication. Claims are fact-checked against current medical literature. Outdated info gets flagged and updated.</p>
+                <ul class="list" style="margin-top: 16px;">
+                    <li>Research → Draft → Edit → Fact-check → Publish</li>
+                    <li>Quarterly content audits for accuracy</li>
+                    <li>Drug info updated when labels change</li>
+                    <li>User-reported corrections investigated</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 16: Content Engine (NEW) -->
+    <section class="slide" data-title="Content Engine">
+        <span class="slide-number">16 / 23</span>
+        <h2>The Content Engine</h2>
+        <p class="subtitle">Systematic, repeatable, scalable content production</p>
+
+        <h3 style="margin-top: 32px;">Production Pipeline</h3>
+        <div class="step-flow">
+            <div class="step-box">
+                <h4>1. Research</h4>
+                <p>Keyword analysis + search volume. Map user intent. Identify gaps in existing content landscape.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>2. Source</h4>
+                <p>Pull peer-reviewed studies from PubMed, NIH, Cochrane. FDA labels for drugs. Clinical guidelines.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>3. Draft</h4>
+                <p>Write evidence-based content. Inline citations for every medical claim. Clear, accessible language.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>4. Review</h4>
+                <p>Medical fact-check. Citation verification. Disclaimer compliance. SEO optimization pass.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>5. Publish</h4>
+                <p>Schema markup. Internal cross-links. Sitemap update. GSC submission. Social distribution.</p>
+            </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 32px;">
+            <div class="card">
+                <h3>Content Types</h3>
+                <ul class="list" style="margin-top: 0;">
+                    <li><strong>Condition Guides</strong> — comprehensive overviews (2,000-4,000 words)</li>
+                    <li><strong>Drug Profiles</strong> — dosage, side effects, interactions</li>
+                    <li><strong>Comparison Articles</strong> — "X vs Y" (high search volume)</li>
+                    <li><strong>FAQ Pages</strong> — generated from real user questions</li>
+                    <li><strong>Procedure Guides</strong> — what to expect, prep, recovery</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Per-Site Targets</h3>
+                <ul class="list" style="margin-top: 0;">
+                    <li><strong>Launch:</strong> 20-30 seed articles per site</li>
+                    <li><strong>Ongoing:</strong> 4-8 new articles per site/month</li>
+                    <li><strong>Q&A content:</strong> auto-generated from user questions</li>
+                    <li><strong>Updates:</strong> quarterly accuracy audits</li>
+                    <li><strong>Total Year 1:</strong> 500-750+ articles across network</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>SEO Strategy</h3>
+                <ul class="list" style="margin-top: 0;">
+                    <li><strong>Topic clusters</strong> — pillar page + supporting articles</li>
+                    <li><strong>Internal linking</strong> — systematic cross-site links</li>
+                    <li><strong>Schema markup</strong> — MedicalWebPage, FAQPage, HowTo</li>
+                    <li><strong>Featured snippets</strong> — structured answers for position zero</li>
+                    <li><strong>Long-tail focus</strong> — "ozempic side effects week 1" type queries</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 17: Site Build System (NEW) -->
+    <section class="slide" data-title="Site System">
+        <span class="slide-number">17 / 23</span>
+        <h2>Site Build System</h2>
+        <p class="subtitle">One template. 25 sites. Deploy in minutes.</p>
+
+        <div class="grid-2">
+            <div>
+                <h3>Reusable Template</h3>
+                <ul class="list">
+                    <li><strong>Mobile-first design</strong> — 60%+ of health searches are mobile</li>
+                    <li><strong>Fast load times</strong> — static HTML on GitHub Pages (free CDN)</li>
+                    <li><strong>Consistent branding</strong> — Thrive network badge on every site</li>
+                    <li><strong>Built-in components:</strong> newsletter capture, disclaimer footer, citation sidebar, related articles, Q&A widget</li>
+                    <li><strong>Accessibility</strong> — WCAG compliant, screen reader friendly</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Deployment Pipeline</h3>
+                <ul class="list">
+                    <li><strong>GitHub Pages</strong> — free hosting, SSL, custom domains</li>
+                    <li><strong>One repo per site</strong> — independent deploys, version control</li>
+                    <li><strong>Template repo</strong> — fork + configure = new site in minutes</li>
+                    <li><strong>Automated sitemap</strong> — generated on each deploy</li>
+                    <li><strong>Google Search Console</strong> — verified from day one</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 40px;">Rollout Sequence</h3>
+        <div class="step-flow">
+            <div class="step-box">
+                <h4>Week 1-2</h4>
+                <p>Build master template. Launch <strong>anxiety.md</strong> as pilot (highest search volume).</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>Week 3-4</h4>
+                <p>Launch cluster hubs: <strong>mental.md</strong> + <strong>glp1.md</strong>. Begin cross-linking.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>Month 2</h4>
+                <p>Roll out remaining mental health + GLP-1 sites. Full cluster interlinks live.</p>
+            </div>
+            <span class="step-arrow">→</span>
+            <div class="step-box">
+                <h4>Month 3-4</h4>
+                <p>Launch conditions, procedures, B2B sites. Full 25-site network operational.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 18: AI Q&A Moat -->
+    <section class="slide" data-title="AI Q&A Moat">
+        <span class="slide-number">18 / 23</span>
+        <h2>The Q&A Moat</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🤖 How It Works</h3>
+                <p>Each site has an interactive Q&A feature. Users ask health questions and get helpful, <strong>citation-backed</strong> answers with clear disclaimers. Every response links to source material.</p>
+            </div>
+            <div class="card">
+                <h3>📈 Content Generation</h3>
+                <p>Every question becomes indexed content. Real user queries = perfect long-tail keywords. Automatically generates FAQ pages from the most common questions.</p>
+            </div>
+            <div class="card">
+                <h3>⏱️ Engagement</h3>
+                <p>Interactive Q&A increases time-on-site 3-5x. More engagement signals = better Google rankings = more traffic. The flywheel accelerates.</p>
+            </div>
+            <div class="card">
+                <h3>🔒 Defensibility</h3>
+                <p>Competitors can copy static content. They can't copy your proprietary Q&A dataset, user behavior patterns, and the long-tail content it generates. First-mover advantage compounds.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 19: Competitive Edge -->
+    <section class="slide" data-title="Competitive Edge">
+        <span class="slide-number">19 / 23</span>
+        <h2>Competitive Landscape</h2>
+        <p class="subtitle">We're not competing with WebMD. We're flanking them.</p>
+        <table class="revenue-table">
+            <tr><th>Competitor</th><th>Strength</th><th>Weakness</th><th>Our Edge</th></tr>
+            <tr><td class="highlight">WebMD / Healthline</td><td>Massive DA, huge traffic</td><td>Ad-bloated, declining trust, generic</td><td>Clean UX, niche focus, memorable URLs</td></tr>
+            <tr><td class="highlight">Mayo Clinic</td><td>Ultimate authority</td><td>No monetization intent, slow to update</td><td>We cite them, not compete with them</td></tr>
+            <tr><td class="highlight">Reddit / Forums</td><td>Real user experiences</td><td>Unverified, chaotic, not medical</td><td>Structured, cited, trustworthy</td></tr>
+            <tr><td class="highlight">Niche Health Blogs</td><td>Passionate, specific</td><td>Bad domains, no network effects</td><td>25-site network, premium .md domains</td></tr>
+        </table>
+        <div class="callout" style="margin-top: 32px;">
+            <p><strong>The moat:</strong> Nobody else has 25 interlinked health domains with a hub brand, category sub-hubs, and the .md authority signal. This network compounds in a way individual sites can't.</p>
+        </div>
+    </section>
+
+    <!-- Slide 20: Risk & Mitigation -->
+    <section class="slide" data-title="Risks">
+        <span class="slide-number">20 / 23</span>
+        <h2>Risks & Mitigation</h2>
+        <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 24px;">
+            <div class="callout risk-high">
+                <p style="font-size: 18px;"><strong>Google E-E-A-T Penalties</strong> — Health content under intense scrutiny. New domains start with zero authority.</p>
+                <p style="font-size: 16px; margin-top: 8px; color: var(--text-secondary);"><strong style="color: var(--accent);">Mitigation:</strong> Every article cites peer-reviewed literature. Named authors with credentials. "Medically reviewed" badges. MedicalWebPage schema markup. Build authority gradually — quality over volume.</p>
+            </div>
+            <div class="callout risk-med">
+                <p style="font-size: 18px;"><strong>Moldova TLD Risk</strong> — .md is Moldova's country code. Registry policy changes could affect domains.</p>
+                <p style="font-size: 16px; margin-top: 8px; color: var(--text-secondary);"><strong style="color: var(--accent);">Mitigation:</strong> Moldova has had stable TLD policies for 15+ years. nic.md is ICANN-accredited. Multi-year registrations available. Multi-year registrations lock in pricing. Worst case: 301 redirect to .com backups.</p>
+            </div>
+            <div class="callout risk-med">
+                <p style="font-size: 18px;"><strong>FTC / FDA Compliance</strong> — Pharma-adjacent content has advertising and claims regulations.</p>
+                <p style="font-size: 16px; margin-top: 8px; color: var(--text-secondary);"><strong style="color: var(--accent);">Mitigation:</strong> Clear medical disclaimers on every page. FTC-compliant affiliate disclosures. No unapproved drug claims. Educational content only — never prescriptive.</p>
+            </div>
+            <div class="callout risk-low">
+                <p style="font-size: 18px;"><strong>Competition / Copycats</strong> — Others notice the .md health domain play.</p>
+                <p style="font-size: 16px; margin-top: 8px; color: var(--text-secondary);"><strong style="color: var(--accent);">Mitigation:</strong> First-mover advantage. Premium domains already registered. 25-site network effect is extremely hard to replicate. Content + backlinks compound over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 21: Execution Plan -->
     <section class="slide" data-title="Execution Plan">
-        <span class="slide-number">14 / 16</span>
+        <span class="slide-number">21 / 23</span>
         <h2>Execution Plan</h2>
         <div class="grid-3">
             <div class="card">
                 <h3>Phase 1: Foundation</h3>
                 <p><strong>Month 1-2</strong></p>
                 <ul class="list">
-                    <li>Acquire 3-5 domains</li>
-                    <li>Build template site</li>
-                    <li>Create 20-30 seed articles each</li>
-                    <li>Add AI Q&A widget</li>
+                    <li>Register all 25 domains ✅</li>
+                    <li>Build reusable site template</li>
+                    <li>Launch pilot sites (anxiety.md, mental.md, glp1.md)</li>
+                    <li>20+ medically-cited articles per pilot</li>
+                    <li>Set up Beehiiv (free tier)</li>
+                    <li>GSC verified on all sites</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>Phase 2: Growth</h3>
+                <h3>Phase 2: Scale</h3>
                 <p><strong>Month 3-6</strong></p>
                 <ul class="list">
-                    <li>Scale content via AI</li>
-                    <li>Build backlinks</li>
-                    <li>Optimize Q&A → content pipeline</li>
-                    <li>Track rankings & traffic</li>
+                    <li>Roll out all 25 sites</li>
+                    <li>Full internal cross-linking network</li>
+                    <li>4-8 new articles per site/month</li>
+                    <li>Launch Q&A on high-traffic sites</li>
+                    <li>Begin backlink outreach</li>
+                    <li>Upgrade Beehiiv as list grows</li>
                 </ul>
             </div>
             <div class="card">
                 <h3>Phase 3: Monetize</h3>
                 <p><strong>Month 6+</strong></p>
                 <ul class="list">
-                    <li>Outreach to sponsors</li>
-                    <li>Add affiliate placements</li>
-                    <li>B2B lead capture</li>
-                    <li>Evaluate domain sales</li>
+                    <li>Activate Beehiiv Ad Network</li>
+                    <li>Sponsor outreach (pharma, telehealth)</li>
+                    <li>Affiliate placements on traffic sites</li>
+                    <li>B2B lead capture (emr, fhir, hipaa)</li>
+                    <li>Evaluate domain sale opportunities</li>
+                    <li>Scale content to 750+ total articles</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Slide 15: Why Now -->
+    <!-- Slide 22: Why Now -->
     <section class="slide" data-title="Why Now">
-        <span class="slide-number">15 / 16</span>
+        <span class="slide-number">22 / 23</span>
         <h2>Why Now?</h2>
         <ul class="list" style="max-width: 700px;">
-            <li><strong>.md domains are undervalued</strong> — Most people don't know Moldova's TLD exists</li>
-            <li><strong>AI content is mature</strong> — Can generate quality health content at scale</li>
-            <li><strong>Search is evolving</strong> — AI answers drive need for authoritative sources</li>
-            <li><strong>Healthcare digitization</strong> — Post-COVID, health info demand is permanent</li>
-            <li><strong>First-mover window</strong> — Premium .md health domains still available</li>
+            <li><strong>.md domains are $27.53/year</strong> — absurdly underpriced for premium health keywords</li>
+            <li><strong>GLP-1 mania</strong> — Ozempic, Mounjaro searches are at all-time highs and growing</li>
+            <li><strong>Mental health demand permanent</strong> — post-COVID, stigma dropping, searches rising</li>
+            <li><strong>Search is fragmenting</strong> — AI answers make branded, memorable domains more valuable</li>
+            <li><strong>Healthcare digitization</strong> — health info demand is permanent and growing</li>
+            <li><strong>First-mover window</strong> — premium .md health domains are still available right now</li>
+            <li><strong>Network effects take time</strong> — the earlier we start, the wider the moat when competitors notice</li>
         </ul>
     </section>
 
-    <!-- Slide 16: Next Steps -->
+    <!-- Slide 23: Next Steps -->
     <section class="slide" data-title="Next Steps">
-        <span class="slide-number">16 / 16</span>
+        <span class="slide-number">23 / 23</span>
         <h2>Next Steps</h2>
         <div class="grid-2">
             <div>
-                <h3>Immediate Actions</h3>
+                <h3>Immediate (This Week)</h3>
                 <ul class="list">
-                    <li>Register priority domains via nic.md</li>
-                    <li>Build anxiety.md as proof of concept</li>
-                    <li>Validate traffic & engagement model</li>
-                    <li>Develop sponsor pitch deck</li>
+                    <li>Finish registering all domains via nic.md ✅</li>
+                    <li>Point DNS to GitHub Pages</li>
+                    <li>Build master site template</li>
+                    <li>Launch anxiety.md as proof of concept</li>
+                    <li>Set up Beehiiv account (free tier)</li>
                 </ul>
             </div>
             <div>
-                <h3>Success Metrics</h3>
+                <h3>This Month</h3>
                 <ul class="list">
-                    <li>10K monthly visitors (Month 3)</li>
-                    <li>First sponsor signed (Month 6)</li>
-                    <li>$5K/mo revenue (Month 9)</li>
-                    <li>$25K/mo revenue (Month 12)</li>
+                    <li>20+ medically-cited articles on anxiety.md</li>
+                    <li>Launch mental.md + glp1.md cluster hubs</li>
+                    <li>Email capture live on all sites</li>
+                    <li>Submit sitemaps to Google Search Console</li>
+                    <li>Begin content production for remaining sites</li>
                 </ul>
+            </div>
+        </div>
+        <div style="margin-top: 48px;">
+            <h3>Success Metrics</h3>
+            <div class="grid-4">
+                <div class="stat">
+                    <div class="stat-number" style="font-size: 36px;">5K</div>
+                    <div class="stat-label">Monthly visitors (Month 3)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" style="font-size: 36px;">25K</div>
+                    <div class="stat-label">Monthly visitors (Month 6)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" style="font-size: 36px;">$5K</div>
+                    <div class="stat-label">Monthly revenue (Month 9)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" style="font-size: 36px;">$25K</div>
+                    <div class="stat-label">Monthly revenue (Month 12)</div>
+                </div>
             </div>
         </div>
     </section>
@@ -845,29 +877,18 @@
         let currentSlide = 0;
         let isNavigating = false;
 
-        // Navigate to specific slide
         function goToSlide(index, smooth = true) {
             if (index < 0 || index >= slides.length || isNavigating) return;
-            
             isNavigating = true;
             const targetSlide = slides[index];
-            
-            // Mark target as visible before scroll
             targetSlide.classList.add('visible');
-            
-            // Scroll to slide
             targetSlide.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
-            
-            // Update state
             currentSlide = index;
             updateNav();
             updateProgress();
-            
-            // Reset navigation lock
             setTimeout(() => { isNavigating = false; }, smooth ? 600 : 100);
         }
 
-        // Intersection Observer for scroll-based navigation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isNavigating) {
@@ -883,57 +904,22 @@
         }, { threshold: 0.3 });
 
         slides.forEach(slide => observer.observe(slide));
+        function updateNav() { navDots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
+        function updateProgress() { progressBar.style.width = ((currentSlide + 1) / slides.length) * 100 + '%'; }
+        navDots.forEach(dot => { dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.slide))); });
 
-        // Navigation UI
-        function updateNav() {
-            navDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        function updateProgress() {
-            const progress = ((currentSlide + 1) / slides.length) * 100;
-            progressBar.style.width = progress + '%';
-        }
-
-        // Click navigation
-        navDots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = parseInt(dot.dataset.slide);
-                goToSlide(index);
-            });
-        });
-
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-                e.preventDefault();
-                goToSlide(currentSlide + 1);
-            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-                goToSlide(currentSlide - 1);
-            }
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goToSlide(currentSlide + 1); }
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goToSlide(currentSlide - 1); }
         });
 
-        // Touch/swipe support
         let touchStartY = 0;
-        document.addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
+        document.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
         document.addEventListener('touchend', (e) => {
-            const touchEndY = e.changedTouches[0].clientY;
-            const diff = touchStartY - touchEndY;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    goToSlide(currentSlide + 1);
-                } else {
-                    goToSlide(currentSlide - 1);
-                }
-            }
+            const diff = touchStartY - e.changedTouches[0].clientY;
+            if (Math.abs(diff) > 50) goToSlide(diff > 0 ? currentSlide + 1 : currentSlide - 1);
         }, { passive: true });
 
-        // Initial state
         slides[0].classList.add('visible');
         updateProgress();
     </script>

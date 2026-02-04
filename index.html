@@ -925,7 +925,7 @@
             || window.location.hostname.includes('192.168');
         const QA_API = isLocal 
             ? window.location.origin + '/ask'
-            : 'https://md-qa.your-worker.workers.dev/ask'; // TODO: replace with real worker URL
+            : 'https://md-qa.md-health.workers.dev/ask';
         
         // Generate session ID for conversation memory
         const SESSION_ID = 'session_' + Math.random().toString(36).substr(2, 9);

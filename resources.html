@@ -114,6 +114,18 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
+        .resource-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .resource-grid.cols-4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 900px) {
+            .resource-grid.cols-3,
+            .resource-grid.cols-4 {
+                grid-template-columns: 1fr;
+            }
+        }
         .resource-card {
             background: var(--bg-secondary);
             border-radius: 12px;
@@ -215,7 +227,7 @@
 
         <section>
             <h2>Self-Assessment Tools</h2>
-            <div class="resource-grid">
+            <div class="resource-grid cols-3">
                 <a href="/gad7.html" class="resource-card tool-card">
                     <h3>📋 GAD-7 Assessment</h3>
                     <p>A clinically-validated 7-question screening tool for generalized anxiety disorder. Takes 2 minutes.</p>
@@ -236,7 +248,7 @@
 
         <section>
             <h2>Trusted Organizations</h2>
-            <div class="resource-grid">
+            <div class="resource-grid cols-4">
                 <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank" class="resource-card">
                     <h3>🏛️ NIMH</h3>
                     <p>National Institute of Mental Health — research-backed information on anxiety disorders.</p>
@@ -262,7 +274,7 @@
 
         <section>
             <h2>Treatment Information</h2>
-            <div class="resource-grid">
+            <div class="resource-grid cols-4">
                 <a href="https://www.mayoclinic.org/diseases-conditions/anxiety/diagnosis-treatment/drc-20350967" target="_blank" class="resource-card">
                     <h3>💊 Anxiety Treatment Options</h3>
                     <p>Overview of therapy, medication, and lifestyle approaches to treating anxiety.</p>
@@ -288,7 +300,7 @@
 
         <section>
             <h2>Books & Reading</h2>
-            <div class="resource-grid">
+            <div class="resource-grid cols-3">
                 <a href="https://www.amazon.com/Feeling-Good-New-Mood-Therapy/dp/0380810336" target="_blank" class="resource-card">
                     <h3>📚 Feeling Good</h3>
                     <p>by David D. Burns, MD — The classic CBT self-help book. Over 5 million copies sold.</p>

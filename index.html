@@ -139,17 +139,15 @@
             flex: 1;
             overflow-y: auto;
             padding: 24px;
-            padding-bottom: 100px;
+            padding-bottom: 16px;
             display: block !important;
+            min-height: 0;
         }
         body.split-mode .chat-panel .chat-input-area {
             padding: 16px 24px;
             border-top: 1px solid var(--border);
             background: var(--bg-primary);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            flex-shrink: 0;
         }
         body.split-mode .chat-panel .qa-suggestions,
         body.split-mode .chat-panel .chat-note {
@@ -186,6 +184,9 @@
             body.split-mode { padding-right: 0; }
             body.split-mode header { right: 0; }
             body.split-mode .chat-panel { width: 100%; }
+            body.split-mode .chat-panel .chat-messages {
+                padding-bottom: env(safe-area-inset-bottom, 16px);
+            }
         }
 
         /* Header */

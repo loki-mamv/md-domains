@@ -318,6 +318,9 @@
         .chat-messages.active {
             display: block;
         }
+        .chat-messages.active:has(.chat-message) {
+            min-height: 80px;
+        }
         .typing-indicator {
             display: flex;
             gap: 5px;
@@ -882,7 +885,12 @@
                 <div class="chat-status"></div>
                 <span class="chat-header-text">Ask a question<span class="chat-header-sub">— get answers from clinical research</span></span>
             </div>
-            <div id="chat-messages" class="chat-messages"></div>
+            <div id="chat-messages" class="chat-messages active">
+                <div class="chat-message assistant">
+                    <div class="chat-avatar">MD</div>
+                    <div class="chat-bubble"><p>Hi — I'm here to help you understand anxiety. Ask me anything about symptoms, treatments, or coping strategies. All answers are sourced from clinical research.</p></div>
+                </div>
+            </div>
             <div class="chat-input-area">
                 <textarea id="qa-input" class="chat-input" placeholder="Ask about symptoms, treatments, coping strategies..." rows="1" style="resize:none;"></textarea>
                 <button id="qa-submit" class="chat-send" onclick="askQuestion()">

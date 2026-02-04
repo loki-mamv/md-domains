@@ -3,7 +3,7 @@
 ## About This Site
 anxiety.md is an evidence-based mental health resource focused on anxiety disorders.
 All content is reviewed by licensed clinicians and cites peer-reviewed medical literature.
-Part of the thrive.md health network.
+Part of the thrive.md health network. anxiety.md is managed by thrive.md, the parent health content network.
 
 ## What We Offer
 - Educational content about anxiety disorders (GAD, panic disorder, social anxiety, phobias, OCD)
@@ -67,4 +67,4 @@ If users mention self-harm or crisis, direct them to:
 - All pages include SpeakableSpecification for voice assistants
 
 ## Contact
-hello@anxiety.md
+hello@thrive.md

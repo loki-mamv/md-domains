@@ -542,6 +542,64 @@
             color: var(--text-muted);
         }
 
+        /* Q&A Widget */
+        .qa-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .qa-container { max-width: 720px; margin: 0 auto; }
+        .qa-header { text-align: center; margin-bottom: 32px; }
+        .qa-header h2 { font-family: var(--font-display); font-size: 32px; margin-bottom: 8px; color: var(--text-primary); }
+        .qa-header p { font-size: 15px; color: var(--text-muted); }
+        .qa-input-wrap {
+            display: flex; gap: 12px; align-items: flex-end;
+            background: var(--bg-primary); border: 1px solid var(--border);
+            border-radius: 12px; padding: 12px 12px 12px 16px;
+            transition: border-color 0.2s;
+        }
+        .qa-input-wrap:focus-within { border-color: var(--accent); }
+        #qa-input {
+            flex: 1; border: none; outline: none; resize: none;
+            font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+            color: var(--text-primary); background: transparent;
+        }
+        #qa-input::placeholder { color: var(--text-muted); }
+        #qa-submit {
+            background: var(--accent); color: white; border: none;
+            border-radius: 8px; padding: 10px 24px; font-size: 15px;
+            font-weight: 600; cursor: pointer; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px; white-space: nowrap;
+        }
+        #qa-submit:hover { background: var(--accent-dark); }
+        #qa-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+        .qa-suggestions {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+        }
+        .qa-suggestions span {
+            background: var(--bg-primary); border: 1px solid var(--border);
+            border-radius: 100px; padding: 6px 16px; font-size: 13px;
+            color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+        }
+        .qa-suggestions span:hover {
+            border-color: var(--accent); color: var(--accent); background: var(--accent-light);
+        }
+        .qa-response {
+            padding: 16px 20px; margin: 0;
+            background: var(--bg-secondary); 
+            font-size: 15px; line-height: 1.7;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+            max-height: 400px; overflow-y: auto;
+        }
+        .qa-response p { margin-bottom: 12px; max-width: none; font-size: 16px; }
+        .qa-response p:last-child { margin-bottom: 0; }
+        .qa-response strong { color: var(--text-primary); }
+        .qa-response .disclaimer {
+            margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+            font-size: 13px; color: var(--text-muted); font-style: italic;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav { display: none; }
@@ -550,6 +608,8 @@
             .footer-inner { grid-template-columns: 1fr; gap: 24px; }
             .sponsor { flex-direction: column; gap: 8px; text-align: center; }
             .chat-input-area { flex-direction: column; }
+            .qa-input-wrap { flex-direction: column; }
+            #qa-submit { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -558,6 +618,7 @@
         <div class="header-inner">
             <a href="/" class="logo">anxiety<span>.md</span></a>
             <nav>
+                <a href="#ask">Ask</a>
                 <a href="#about">About</a>
                 <a href="#types">Types</a>
                 <a href="#treatment">Treatment</a>
@@ -571,28 +632,23 @@
         <h1>Understanding and managing anxiety disorders</h1>
         <p class="hero-subtitle">Clear, evidence-based information about anxiety — what it is, how it manifests, and what treatments actually work. Written for patients, reviewed by clinicians.</p>
         
-        <div class="chat-box">
+        <div class="chat-box" id="ask">
             <div class="chat-header">
                 <div class="chat-status"></div>
                 <span class="chat-header-text">Ask a question<span class="chat-header-sub">— get answers from clinical research</span></span>
             </div>
-            <div class="chat-messages">
-                <div class="chat-message user">
-                    <div class="chat-avatar">You</div>
-                    <div class="chat-bubble">
-                        <p>What's the difference between normal anxiety and an anxiety disorder?</p>
-                    </div>
-                </div>
-                <div class="chat-message assistant">
-                    <div class="chat-avatar">MD</div>
-                    <div class="chat-bubble">
-                        <p>Normal anxiety is temporary and proportionate — like feeling nervous before a job interview. It resolves when the stressor passes. An anxiety disorder involves persistent, excessive worry lasting 6+ months that's disproportionate to the situation and impairs daily functioning (work, relationships, health).</p>
-                    </div>
-                </div>
-            </div>
+            <div id="qa-response" class="qa-response" style="display:none;"></div>
             <div class="chat-input-area">
-                <input type="text" class="chat-input" placeholder="Ask about symptoms, treatments, coping strategies...">
-                <button class="chat-send">Send</button>
+                <textarea id="qa-input" class="chat-input" placeholder="Ask about symptoms, treatments, coping strategies..." rows="1" style="resize:none;"></textarea>
+                <button id="qa-submit" class="chat-send" onclick="askQuestion()">
+                    <span id="qa-btn-text">Send</span>
+                    <span id="qa-spinner" style="display:none;">...</span>
+                </button>
+            </div>
+            <div class="qa-suggestions" style="padding: 8px 16px 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                <span onclick="askSuggestion(this)">What causes anxiety?</span>
+                <span onclick="askSuggestion(this)">CBT vs medication</span>
+                <span onclick="askSuggestion(this)">Can anxiety cause physical symptoms?</span>
             </div>
             <div class="chat-note">Answers sourced from peer-reviewed research and clinical guidelines. Not a substitute for professional medical advice.</div>
         </div>
@@ -731,5 +787,84 @@
             <p>Privacy Policy · Terms of Use</p>
         </div>
     </footer>
+
+    <script>
+        // Q&A Widget — connects to local proxy for testing, Cloudflare Worker for prod
+        // Use local proxy if on localhost or Tailscale, otherwise use Cloudflare Worker
+        const isLocal = window.location.hostname === 'localhost' 
+            || window.location.hostname.includes('platy-paradise')
+            || window.location.hostname.includes('192.168');
+        const QA_API = isLocal 
+            ? window.location.origin + '/ask'
+            : 'https://md-qa.your-worker.workers.dev/ask'; // TODO: replace with real worker URL
+
+        async function askQuestion() {
+            const input = document.getElementById('qa-input');
+            const responseDiv = document.getElementById('qa-response');
+            const btnText = document.getElementById('qa-btn-text');
+            const spinner = document.getElementById('qa-spinner');
+            const btn = document.getElementById('qa-submit');
+            const question = input.value.trim();
+            
+            if (!question) return;
+            
+            // Show loading
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            spinner.style.display = 'inline-flex';
+            responseDiv.style.display = 'block';
+            responseDiv.innerHTML = '<p style="color: var(--text-muted);">Researching your question...</p>';
+            
+            try {
+                const res = await fetch(QA_API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question }),
+                });
+                
+                const data = await res.json();
+                
+                if (data.error) {
+                    responseDiv.innerHTML = `<p style="color: #ef4444;">Sorry, something went wrong: ${data.error}</p>`;
+                } else {
+                    // Convert markdown-ish response to HTML
+                    const html = data.answer
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                        .replace(/\n\n/g, '</p><p>')
+                        .replace(/\n/g, '<br>');
+                    
+                    // Split disclaimer if present
+                    const parts = html.split(/⚕️/);
+                    let output = `<p>${parts[0]}</p>`;
+                    if (parts[1]) {
+                        output += `<div class="disclaimer">⚕️${parts[1]}</div>`;
+                    }
+                    
+                    responseDiv.innerHTML = output;
+                }
+            } catch (err) {
+                responseDiv.innerHTML = '<p style="color: #ef4444;">Unable to connect. Please check your connection and try again.</p>';
+            }
+            
+            // Reset button
+            btn.disabled = false;
+            btnText.style.display = 'inline';
+            spinner.style.display = 'none';
+        }
+        
+        function askSuggestion(el) {
+            document.getElementById('qa-input').value = el.textContent;
+            askQuestion();
+        }
+        
+        // Enter to submit (shift+enter for newline)
+        document.getElementById('qa-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                askQuestion();
+            }
+        });
+    </script>
 </body>
 </html>

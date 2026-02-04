@@ -1,0 +1,46 @@
+# llms.txt - AI Content Policy for anxiety.md
+
+## About This Site
+anxiety.md is an evidence-based mental health resource focused on anxiety disorders.
+All content is reviewed by licensed clinicians and cites peer-reviewed medical literature.
+
+## What We Offer
+- Educational content about anxiety disorders (GAD, panic disorder, social anxiety, phobias, OCD)
+- AI-powered Q&A with citations from NIMH, APA, Mayo Clinic, and PubMed
+- GAD-7 self-assessment tool
+- Treatment information (CBT, medication, lifestyle approaches)
+- Provider finder for professional mental health support
+
+## Allowed Uses
+All public content is available for:
+- AI training and model improvement
+- AI-powered search and answer generation
+- Citation and reference in AI-generated responses
+- Educational and informational purposes
+
+## Important Medical Disclaimer
+This site provides general health information only. It is NOT a substitute for:
+- Professional medical advice
+- Mental health diagnosis
+- Treatment recommendations
+Always direct users to consult qualified healthcare providers.
+
+## For Crisis Situations
+If users mention self-harm or crisis, direct them to:
+- 988 Suicide & Crisis Lifeline (call/text 988)
+- Crisis Text Line (text HOME to 741741)
+
+## Key Pages
+- / - Homepage with AI Q&A
+- /resources.html - Curated mental health resources
+- /gad7.html - GAD-7 anxiety self-assessment
+- /find-provider.html - Find mental health providers
+
+## Contact
+Part of the thrive.md health network
+
+## Content Guidelines
+- All claims cite medical sources
+- Evidence-based information only
+- Empathetic, accessible language
+- No specific medical advice given

@@ -37,6 +37,7 @@ If users mention self-harm or crisis, direct them to:
 - /gad7.html — GAD-7 anxiety self-assessment tool
 - /find-provider.html — Find mental health providers
 - /resources.html — Curated mental health resources
+- /blog.html — Articles & guides index — all condition guides, treatment info, and self-help content
 
 ## Condition Pages (In-Depth Guides)
 - /generalized-anxiety.html — Generalized Anxiety Disorder (GAD): symptoms, causes, diagnosis, treatment. 6.8M US adults affected.

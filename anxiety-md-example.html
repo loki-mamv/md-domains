@@ -39,6 +39,89 @@
             color: var(--text-primary);
             line-height: 1.7;
             font-size: 16px;
+            transition: padding 0.4s ease;
+        }
+
+        /* Split-screen mode */
+        body.split-mode {
+            padding-right: 45%;
+        }
+        body.split-mode header {
+            right: 45%;
+        }
+        body.split-mode .chat-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 200;
+            animation: slideIn 0.4s ease;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        body.split-mode .chat-panel .chat-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+        body.split-mode .chat-panel .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            padding-bottom: 100px;
+            display: block !important;
+        }
+        body.split-mode .chat-panel .chat-input-area {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-primary);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        body.split-mode .chat-panel .qa-suggestions,
+        body.split-mode .chat-panel .chat-note {
+            display: none;
+        }
+        body.split-mode .chat-panel .chat-close {
+            display: flex;
+        }
+        body.split-mode .hero .chat-box {
+            display: none;
+        }
+        .chat-close {
+            display: none;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .chat-close:hover {
+            background: var(--border);
+            color: var(--text-primary);
+        }
+        @media (max-width: 900px) {
+            body.split-mode { padding-right: 0; }
+            body.split-mode header { right: 0; }
+            body.split-mode .chat-panel { width: 100%; }
         }
 
         /* Header */
@@ -162,7 +245,36 @@
         .chat-messages {
             padding: 20px;
             background: var(--bg-primary);
-            min-height: 140px;
+            min-height: 0;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+        }
+        .chat-messages.active {
+            display: block;
+        }
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 12px 16px;
+            align-items: center;
+        }
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-6px); opacity: 1; }
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .chat-message {
@@ -614,6 +726,23 @@
     </style>
 </head>
 <body>
+    <!-- Split-mode chat panel (hidden initially) -->
+    <div class="chat-panel" id="chat-panel" style="display: none;">
+        <button class="chat-close" onclick="closeSplitMode()">✕</button>
+        <div class="chat-header">
+            <div class="chat-status"></div>
+            <span class="chat-header-text">Ask a question<span class="chat-header-sub">— get answers from clinical research</span></span>
+        </div>
+        <div id="panel-messages" class="chat-messages"></div>
+        <div class="chat-input-area">
+            <textarea id="panel-input" class="chat-input" placeholder="Ask a follow-up question..." rows="1" style="resize:none;"></textarea>
+            <button id="panel-submit" class="chat-send" onclick="askQuestion()">
+                <span class="qa-btn-text">Send</span>
+                <span class="qa-spinner" style="display:none;">...</span>
+            </button>
+        </div>
+    </div>
+
     <header>
         <div class="header-inner">
             <a href="/" class="logo">anxiety<span>.md</span></a>
@@ -622,7 +751,8 @@
                 <a href="#about">About</a>
                 <a href="#types">Types</a>
                 <a href="#treatment">Treatment</a>
-                <a href="#resources">Resources</a>
+                <a href="/gad7.html">Self-Test</a>
+                <a href="/resources.html">Resources</a>
             </nav>
         </div>
     </header>
@@ -637,7 +767,7 @@
                 <div class="chat-status"></div>
                 <span class="chat-header-text">Ask a question<span class="chat-header-sub">— get answers from clinical research</span></span>
             </div>
-            <div id="qa-response" class="qa-response" style="display:none;"></div>
+            <div id="chat-messages" class="chat-messages"></div>
             <div class="chat-input-area">
                 <textarea id="qa-input" class="chat-input" placeholder="Ask about symptoms, treatments, coping strategies..." rows="1" style="resize:none;"></textarea>
                 <button id="qa-submit" class="chat-send" onclick="askQuestion()">
@@ -645,7 +775,7 @@
                     <span id="qa-spinner" style="display:none;">...</span>
                 </button>
             </div>
-            <div class="qa-suggestions" style="padding: 8px 16px 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+            <div id="qa-suggestions" class="qa-suggestions" style="padding: 8px 16px 12px; display: flex; gap: 8px; flex-wrap: wrap;">
                 <span onclick="askSuggestion(this)">What causes anxiety?</span>
                 <span onclick="askSuggestion(this)">CBT vs medication</span>
                 <span onclick="askSuggestion(this)">Can anxiety cause physical symptoms?</span>
@@ -749,7 +879,7 @@
         <div class="cta" id="resources">
             <h2>Ready to talk to someone?</h2>
             <p>If anxiety is affecting your quality of life, professional support can help. Most people improve significantly with appropriate treatment.</p>
-            <a href="#" class="cta-button">Find a Provider</a>
+            <a href="/find-provider.html" class="cta-button">Find a Provider</a>
         </div>
     </main>
 
@@ -761,18 +891,18 @@
             </div>
             <div class="footer-links">
                 <h4>Conditions</h4>
-                <a href="#">Generalized Anxiety</a>
-                <a href="#">Panic Disorder</a>
-                <a href="#">Social Anxiety</a>
-                <a href="#">Phobias</a>
-                <a href="#">OCD</a>
+                <a href="https://www.nimh.nih.gov/health/topics/generalized-anxiety-disorder-gad" target="_blank">Generalized Anxiety</a>
+                <a href="https://www.nimh.nih.gov/health/topics/panic-disorder" target="_blank">Panic Disorder</a>
+                <a href="https://www.nimh.nih.gov/health/topics/social-anxiety-disorder" target="_blank">Social Anxiety</a>
+                <a href="https://www.nimh.nih.gov/health/topics/specific-phobia" target="_blank">Phobias</a>
+                <a href="https://www.nimh.nih.gov/health/topics/obsessive-compulsive-disorder-ocd" target="_blank">OCD</a>
             </div>
             <div class="footer-links">
                 <h4>Resources</h4>
-                <a href="#">Find a Therapist</a>
-                <a href="#">Crisis Support</a>
-                <a href="#">Self-Assessment</a>
-                <a href="#">Research Library</a>
+                <a href="/find-provider.html">Find a Therapist</a>
+                <a href="/resources.html#crisis">Crisis Support</a>
+                <a href="/gad7.html">Self-Assessment</a>
+                <a href="/resources.html">Resource Library</a>
             </div>
             <div class="footer-links">
                 <h4>About</h4>
@@ -790,67 +920,287 @@
 
     <script>
         // Q&A Widget — connects to local proxy for testing, Cloudflare Worker for prod
-        // Use local proxy if on localhost or Tailscale, otherwise use Cloudflare Worker
         const isLocal = window.location.hostname === 'localhost' 
             || window.location.hostname.includes('platy-paradise')
             || window.location.hostname.includes('192.168');
         const QA_API = isLocal 
             ? window.location.origin + '/ask'
             : 'https://md-qa.your-worker.workers.dev/ask'; // TODO: replace with real worker URL
+        
+        // Generate session ID for conversation memory
+        const SESSION_ID = 'session_' + Math.random().toString(36).substr(2, 9);
+        
+        // Smooth typewriter effect
+        class Typewriter {
+            constructor(element, speed = 8) {
+                this.element = element;
+                this.speed = speed;
+                this.queue = '';
+                this.displayed = '';
+                this.typing = false;
+                this.done = false;
+                this.onComplete = null;
+            }
+            
+            add(text) {
+                this.queue += text;
+                if (!this.typing) this.type();
+            }
+            
+            type() {
+                if (this.queue.length === 0) {
+                    this.typing = false;
+                    if (this.done && this.onComplete) {
+                        this.onComplete(this.displayed);
+                    }
+                    return;
+                }
+                this.typing = true;
+                
+                // Take 2-5 characters at a time for faster but smooth feel
+                const chars = Math.min(2 + Math.floor(Math.random() * 4), this.queue.length);
+                this.displayed += this.queue.slice(0, chars);
+                this.queue = this.queue.slice(chars);
+                
+                this.element.innerHTML = formatResponse(this.displayed);
+                this.element.closest('.chat-messages')?.scrollTo(0, 999999);
+                
+                // Fast base speed with slight variation
+                const delay = this.speed + Math.random() * 8;
+                setTimeout(() => this.type(), delay);
+            }
+            
+            finish() {
+                this.done = true;
+                return new Promise(resolve => {
+                    if (!this.typing && this.queue.length === 0) {
+                        resolve(this.displayed);
+                    } else {
+                        this.onComplete = resolve;
+                    }
+                });
+            }
+        }
+
+        let splitModeActive = false;
+        
+        function getActiveMessagesDiv() {
+            return splitModeActive 
+                ? document.getElementById('panel-messages')
+                : document.getElementById('chat-messages');
+        }
+        
+        function getActiveInput() {
+            return splitModeActive
+                ? document.getElementById('panel-input')
+                : document.getElementById('qa-input');
+        }
+        
+        function activateSplitMode() {
+            if (splitModeActive) return;
+            splitModeActive = true;
+            
+            document.body.classList.add('split-mode');
+            const panel = document.getElementById('chat-panel');
+            panel.style.display = 'flex';
+            
+            // Move existing messages to panel
+            const heroMessages = document.getElementById('chat-messages');
+            const panelMessages = document.getElementById('panel-messages');
+            panelMessages.innerHTML = heroMessages.innerHTML;
+            panelMessages.classList.add('active');
+            
+            // Focus panel input
+            document.getElementById('panel-input').focus();
+            
+            // Scroll to top of page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function closeSplitMode() {
+            splitModeActive = false;
+            document.body.classList.remove('split-mode');
+            document.getElementById('chat-panel').style.display = 'none';
+            
+            // Keep messages in hero chat
+            const panelMessages = document.getElementById('panel-messages');
+            const heroMessages = document.getElementById('chat-messages');
+            heroMessages.innerHTML = panelMessages.innerHTML;
+            heroMessages.classList.add('active');
+        }
+
+        function addMessage(text, isUser = false, isTyping = false) {
+            const messagesDiv = getActiveMessagesDiv();
+            messagesDiv.classList.add('active');
+            
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chat-message ${isUser ? 'user' : 'assistant'}`;
+            
+            if (isTyping) {
+                msgDiv.id = 'typing-indicator';
+                msgDiv.innerHTML = `
+                    <div class="chat-avatar">MD</div>
+                    <div class="chat-bubble">
+                        <div class="typing-indicator">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                msgDiv.innerHTML = `
+                    <div class="chat-avatar">${isUser ? 'You' : 'MD'}</div>
+                    <div class="chat-bubble"><p>${text}</p></div>
+                `;
+            }
+            
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            return msgDiv;
+        }
+
+        function removeTypingIndicator() {
+            const typing = document.getElementById('typing-indicator');
+            if (typing) typing.remove();
+        }
+
+        function formatResponse(answer) {
+            let html = answer
+                // Convert markdown links [text](url) to <a> tags
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color: var(--accent);">$1</a>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+            
+            // Split disclaimer
+            const parts = html.split(/⚕️/);
+            let output = parts[0];
+            if (parts[1]) {
+                output += `</p><p class="disclaimer" style="font-size: 12px; color: var(--text-muted); margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">⚕️${parts[1]}`;
+            }
+            return output;
+        }
 
         async function askQuestion() {
-            const input = document.getElementById('qa-input');
-            const responseDiv = document.getElementById('qa-response');
-            const btnText = document.getElementById('qa-btn-text');
-            const spinner = document.getElementById('qa-spinner');
-            const btn = document.getElementById('qa-submit');
+            const input = getActiveInput();
+            const btn = input.closest('.chat-input-area').querySelector('.chat-send');
+            const btnText = btn.querySelector('.qa-btn-text, #qa-btn-text');
+            const spinner = btn.querySelector('.qa-spinner, #qa-spinner');
+            const suggestions = document.getElementById('qa-suggestions');
+            const messagesDiv = getActiveMessagesDiv();
             const question = input.value.trim();
             
             if (!question) return;
             
-            // Show loading
-            btn.disabled = true;
-            btnText.style.display = 'none';
-            spinner.style.display = 'inline-flex';
-            responseDiv.style.display = 'block';
-            responseDiv.innerHTML = '<p style="color: var(--text-muted);">Researching your question...</p>';
+            // Hide suggestions after first use
+            if (suggestions) suggestions.style.display = 'none';
+            
+            // Add user message
+            addMessage(question, true);
+            input.value = '';
+            
+            // Activate split mode after first question
+            if (!splitModeActive) {
+                activateSplitMode();
+            }
+            
+            // Re-get messagesDiv after potential split mode activation
+            const activeMessagesDiv = getActiveMessagesDiv();
+            
+            // Disable button (re-get elements since we may have switched contexts)
+            const activeBtn = getActiveInput().closest('.chat-input-area').querySelector('.chat-send');
+            const activeBtnText = activeBtn.querySelector('.qa-btn-text, #qa-btn-text');
+            const activeSpinner = activeBtn.querySelector('.qa-spinner, #qa-spinner');
+            
+            activeBtn.disabled = true;
+            activeBtnText.style.display = 'none';
+            activeSpinner.style.display = 'inline-flex';
+            
+            // Create response bubble (will stream into it)
+            const responseDiv = document.createElement('div');
+            responseDiv.className = 'chat-message assistant';
+            responseDiv.innerHTML = `
+                <div class="chat-avatar">MD</div>
+                <div class="chat-bubble"><p><span class="streaming-text"></span><span class="cursor" style="display:inline-block;width:2px;height:1em;background:var(--accent);margin-left:2px;animation:blink 1s infinite;vertical-align:middle;"></span></p></div>
+            `;
+            activeMessagesDiv.classList.add('active');
+            activeMessagesDiv.appendChild(responseDiv);
+            const streamingText = responseDiv.querySelector('.streaming-text');
+            const cursor = responseDiv.querySelector('.cursor');
+            
+            // Create typewriter for smooth output
+            const typewriter = new Typewriter(streamingText, 15);
             
             try {
                 const res = await fetch(QA_API, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ question }),
+                    body: JSON.stringify({ question, sessionId: SESSION_ID }),
                 });
                 
-                const data = await res.json();
-                
-                if (data.error) {
-                    responseDiv.innerHTML = `<p style="color: #ef4444;">Sorry, something went wrong: ${data.error}</p>`;
-                } else {
-                    // Convert markdown-ish response to HTML
-                    const html = data.answer
-                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                        .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                        .replace(/\n\n/g, '</p><p>')
-                        .replace(/\n/g, '<br>');
-                    
-                    // Split disclaimer if present
-                    const parts = html.split(/⚕️/);
-                    let output = `<p>${parts[0]}</p>`;
-                    if (parts[1]) {
-                        output += `<div class="disclaimer">⚕️${parts[1]}</div>`;
-                    }
-                    
-                    responseDiv.innerHTML = output;
+                if (!res.ok) {
+                    const error = await res.json();
+                    throw new Error(error.error || 'Request failed');
                 }
+                
+                // Check for session limit
+                const contentType = res.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    const data = await res.json();
+                    if (data.error === 'SESSION_LIMIT') {
+                        cursor.remove();
+                        responseDiv.querySelector('.chat-bubble').innerHTML = `
+                            <p>${data.message}</p>
+                            <a href="${data.cta.url}" style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--accent);color:white;text-decoration:none;border-radius:8px;font-weight:600;">${data.cta.text}</a>
+                        `;
+                        activeBtn.disabled = false;
+                        activeBtnText.style.display = 'inline';
+                        activeSpinner.style.display = 'none';
+                        return;
+                    }
+                }
+                
+                // Read SSE stream
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n');
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            if (data === '[DONE]') continue;
+                            
+                            try {
+                                const parsed = JSON.parse(data);
+                                if (parsed.text) {
+                                    typewriter.add(parsed.text);
+                                }
+                            } catch (e) {}
+                        }
+                    }
+                }
+                
+                // Wait for typewriter to finish displaying everything, then finalize
+                const finalText = await typewriter.finish();
+                cursor.remove();
+                responseDiv.querySelector('.chat-bubble').innerHTML = `<p>${formatResponse(finalText)}</p>`;
+                
             } catch (err) {
-                responseDiv.innerHTML = '<p style="color: #ef4444;">Unable to connect. Please check your connection and try again.</p>';
+                cursor.remove();
+                streamingText.innerHTML = `<span style="color: #ef4444;">Sorry, something went wrong: ${err.message}</span>`;
             }
             
             // Reset button
-            btn.disabled = false;
-            btnText.style.display = 'inline';
-            spinner.style.display = 'none';
+            activeBtn.disabled = false;
+            activeBtnText.style.display = 'inline';
+            activeSpinner.style.display = 'none';
+            activeMessagesDiv.scrollTop = activeMessagesDiv.scrollHeight;
         }
         
         function askSuggestion(el) {
@@ -860,6 +1210,13 @@
         
         // Enter to submit (shift+enter for newline)
         document.getElementById('qa-input').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                askQuestion();
+            }
+        });
+        
+        document.getElementById('panel-input').addEventListener('keydown', (e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 askQuestion();

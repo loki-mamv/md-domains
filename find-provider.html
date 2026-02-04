@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Provider — anxiety.md</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent: #0d9488;
+            --accent-dark: #0f766e;
+            --accent-light: #ccfbf1;
+            --border: #e2e8f0;
+            --font-display: 'Source Serif 4', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+        }
+        .header-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover { color: var(--accent); }
+        main {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+        h1 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        .card {
+            background: var(--bg-primary);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: var(--font-body);
+            transition: border-color 0.2s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--accent-dark); }
+        .note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+        .options {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .options h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .option-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .option-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .option-card:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        .option-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .option-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .option-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .crisis {
+            margin-top: 40px;
+            padding: 20px;
+            background: #fef2f2;
+            border-radius: 12px;
+            border: 1px solid #fecaca;
+            text-align: center;
+        }
+        .crisis h4 {
+            color: #dc2626;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .crisis p {
+            font-size: 14px;
+            color: #7f1d1d;
+        }
+        .crisis a {
+            color: #dc2626;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">anxiety<span>.md</span></a>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Find a Provider</h1>
+        <p class="subtitle">Get matched with licensed therapists who specialize in anxiety disorders.</p>
+
+        <div class="card">
+            <form id="provider-form">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP code</label>
+                    <input type="text" id="zip" name="zip" placeholder="12345" pattern="[0-9]{5}" maxlength="5">
+                </div>
+                <div class="form-group">
+                    <label for="concern">Primary concern</label>
+                    <select id="concern" name="concern">
+                        <option value="general">General anxiety</option>
+                        <option value="gad">Generalized Anxiety Disorder</option>
+                        <option value="panic">Panic attacks</option>
+                        <option value="social">Social anxiety</option>
+                        <option value="phobia">Specific phobia</option>
+                        <option value="ocd">OCD</option>
+                        <option value="ptsd">PTSD</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Find Providers</button>
+            </form>
+            <p class="note">We'll send you personalized provider recommendations. No spam, ever.</p>
+
+            <div class="options">
+                <h3>Or explore these options</h3>
+                <div class="option-cards">
+                    <a href="#" class="option-card" id="betterhelp-link">
+                        <div class="option-icon">💬</div>
+                        <div class="option-text">
+                            <h4>BetterHelp</h4>
+                            <p>Online therapy with licensed counselors. Start today.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="option-card" id="talkspace-link">
+                        <div class="option-icon">📱</div>
+                        <div class="option-text">
+                            <h4>Talkspace</h4>
+                            <p>Text, audio, or video therapy on your schedule.</p>
+                        </div>
+                    </a>
+                    <a href="https://www.psychologytoday.com/us/therapists/anxiety" target="_blank" class="option-card">
+                        <div class="option-icon">🔍</div>
+                        <div class="option-text">
+                            <h4>Psychology Today Directory</h4>
+                            <p>Search thousands of therapists by location & specialty.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="crisis">
+            <h4>Need immediate help?</h4>
+            <p>If you're in crisis, call or text <a href="tel:988">988</a> (Suicide & Crisis Lifeline) or text HOME to <a href="sms:741741">741741</a>.</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('provider-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const zip = document.getElementById('zip').value;
+            const concern = document.getElementById('concern').value;
+            
+            // TODO: Send to your email collection endpoint
+            console.log('Lead captured:', { email, zip, concern });
+            
+            // For now, redirect to Psychology Today with concern filter
+            const concernMap = {
+                'general': 'anxiety',
+                'gad': 'generalized-anxiety-gad',
+                'panic': 'panic',
+                'social': 'social-anxiety',
+                'phobia': 'phobias',
+                'ocd': 'obsessive-compulsive-ocd',
+                'ptsd': 'trauma-and-ptsd',
+                'other': 'anxiety'
+            };
+            window.location.href = `https://www.psychologytoday.com/us/therapists/${concernMap[concern]}/${zip || ''}`;
+        });
+    </script>
+</body>
+</html>

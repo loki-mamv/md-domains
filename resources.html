@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anxiety Resources — anxiety.md</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent: #0d9488;
+            --accent-dark: #0f766e;
+            --accent-light: #ccfbf1;
+            --border: #e2e8f0;
+            --font-display: 'Source Serif 4', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        header {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .logo span { color: var(--accent); }
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 15px;
+        }
+        nav a:hover { color: var(--accent); }
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        h1 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .intro {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+        .crisis-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 24px 32px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .crisis-banner .icon {
+            font-size: 48px;
+        }
+        .crisis-banner h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .crisis-banner p {
+            opacity: 0.9;
+        }
+        .crisis-banner a {
+            color: white;
+            font-weight: 700;
+        }
+        section {
+            margin-bottom: 48px;
+        }
+        h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .resource-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .resource-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .resource-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .resource-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .resource-card .source {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .tool-card {
+            background: var(--accent-light);
+            border: 1px solid var(--accent);
+        }
+        .tool-card:hover {
+            background: white;
+        }
+        .cta-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 48px;
+        }
+        .cta-section h2 {
+            border: none;
+            padding: 0;
+        }
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover { background: var(--accent-dark); }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        footer a { color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">anxiety<span>.md</span></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/gad7.html">Self-Assessment</a>
+                <a href="/find-provider.html">Find a Provider</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Anxiety Resources</h1>
+        <p class="intro">Curated guides, tools, and support resources for understanding and managing anxiety — all vetted by our editorial team.</p>
+
+        <div class="crisis-banner">
+            <div class="icon">🆘</div>
+            <div>
+                <h2>Crisis Support — Available 24/7</h2>
+                <p><strong>988 Suicide & Crisis Lifeline:</strong> Call or text <a href="tel:988">988</a><br>
+                <strong>Crisis Text Line:</strong> Text HOME to <a href="sms:741741">741741</a><br>
+                <strong>International:</strong> <a href="https://findahelpline.com/" target="_blank">Find a helpline in your country</a></p>
+            </div>
+        </div>
+
+        <section>
+            <h2>Self-Assessment Tools</h2>
+            <div class="resource-grid">
+                <a href="/gad7.html" class="resource-card tool-card">
+                    <h3>📋 GAD-7 Assessment</h3>
+                    <p>A clinically-validated 7-question screening tool for generalized anxiety disorder. Takes 2 minutes.</p>
+                    <span class="source">Used by clinicians worldwide</span>
+                </a>
+                <a href="https://www.mdcalc.com/calc/1727/phq-9-patient-health-questionnaire-9" target="_blank" class="resource-card tool-card">
+                    <h3>📋 PHQ-9 (Depression)</h3>
+                    <p>Screen for depression, which commonly co-occurs with anxiety disorders.</p>
+                    <span class="source">MDCalc</span>
+                </a>
+                <a href="https://www.mdcalc.com/calc/10203/panic-disorder-severity-scale-pdss" target="_blank" class="resource-card tool-card">
+                    <h3>📋 Panic Disorder Scale</h3>
+                    <p>Assess the severity of panic attacks and related avoidance behaviors.</p>
+                    <span class="source">MDCalc</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Trusted Organizations</h2>
+            <div class="resource-grid">
+                <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank" class="resource-card">
+                    <h3>🏛️ NIMH</h3>
+                    <p>National Institute of Mental Health — research-backed information on anxiety disorders.</p>
+                    <span class="source">nimh.nih.gov</span>
+                </a>
+                <a href="https://adaa.org/" target="_blank" class="resource-card">
+                    <h3>🏛️ ADAA</h3>
+                    <p>Anxiety & Depression Association of America — resources, research, and provider directory.</p>
+                    <span class="source">adaa.org</span>
+                </a>
+                <a href="https://www.apa.org/topics/anxiety" target="_blank" class="resource-card">
+                    <h3>🏛️ APA</h3>
+                    <p>American Psychological Association — clinical guidelines and patient resources.</p>
+                    <span class="source">apa.org</span>
+                </a>
+                <a href="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Anxiety-Disorders" target="_blank" class="resource-card">
+                    <h3>🏛️ NAMI</h3>
+                    <p>National Alliance on Mental Illness — support groups, education, and advocacy.</p>
+                    <span class="source">nami.org</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Treatment Information</h2>
+            <div class="resource-grid">
+                <a href="https://www.mayoclinic.org/diseases-conditions/anxiety/diagnosis-treatment/drc-20350967" target="_blank" class="resource-card">
+                    <h3>💊 Anxiety Treatment Options</h3>
+                    <p>Overview of therapy, medication, and lifestyle approaches to treating anxiety.</p>
+                    <span class="source">Mayo Clinic</span>
+                </a>
+                <a href="https://www.apa.org/ptsd-guideline/patients-and-families/cognitive-behavioral" target="_blank" class="resource-card">
+                    <h3>🧠 CBT Explained</h3>
+                    <p>Learn about Cognitive Behavioral Therapy — the gold standard for anxiety treatment.</p>
+                    <span class="source">APA</span>
+                </a>
+                <a href="https://www.ncbi.nlm.nih.gov/books/NBK441870/" target="_blank" class="resource-card">
+                    <h3>💊 Medication Guide</h3>
+                    <p>Clinical overview of SSRIs, SNRIs, benzodiazepines, and other medications for anxiety.</p>
+                    <span class="source">NCBI/StatPearls</span>
+                </a>
+                <a href="https://www.health.harvard.edu/mind-and-mood/relaxation-techniques-breath-control-helps-quell-errant-stress-response" target="_blank" class="resource-card">
+                    <h3>🧘 Relaxation Techniques</h3>
+                    <p>Evidence-based breathing and relaxation exercises for managing acute anxiety.</p>
+                    <span class="source">Harvard Health</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Books & Reading</h2>
+            <div class="resource-grid">
+                <a href="https://www.amazon.com/Feeling-Good-New-Mood-Therapy/dp/0380810336" target="_blank" class="resource-card">
+                    <h3>📚 Feeling Good</h3>
+                    <p>by David D. Burns, MD — The classic CBT self-help book. Over 5 million copies sold.</p>
+                    <span class="source">Amazon</span>
+                </a>
+                <a href="https://www.amazon.com/Anxiety-Phobia-Workbook-Edmund-Bourne/dp/1684034833" target="_blank" class="resource-card">
+                    <h3>📚 Anxiety & Phobia Workbook</h3>
+                    <p>by Edmund J. Bourne, PhD — Comprehensive exercises and techniques. Now in 7th edition.</p>
+                    <span class="source">Amazon</span>
+                </a>
+                <a href="https://www.amazon.com/Dare-Anxiety-Stop-Panic-Attacks/dp/0956596258" target="_blank" class="resource-card">
+                    <h3>📚 DARE</h3>
+                    <p>by Barry McDonagh — A modern approach to ending panic attacks and anxiety.</p>
+                    <span class="source">Amazon</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to talk to someone?</h2>
+            <p>Professional support can make a real difference. Most people with anxiety disorders improve significantly with appropriate treatment.</p>
+            <a href="/find-provider.html" class="cta-btn">Find a Provider</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 anxiety.md — <a href="/">Home</a> · <a href="/resources.html">Resources</a> · <a href="/find-provider.html">Find a Provider</a></p>
+    </footer>
+</body>
+</html>

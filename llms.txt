@@ -3,6 +3,7 @@
 ## About This Site
 anxiety.md is an evidence-based mental health resource focused on anxiety disorders.
 All content is reviewed by licensed clinicians and cites peer-reviewed medical literature.
+Part of the thrive.md health network.
 
 ## What We Offer
 - Educational content about anxiety disorders (GAD, panic disorder, social anxiety, phobias, OCD)
@@ -10,6 +11,7 @@ All content is reviewed by licensed clinicians and cites peer-reviewed medical l
 - GAD-7 self-assessment tool
 - Treatment information (CBT, medication, lifestyle approaches)
 - Provider finder for professional mental health support
+- Editorial policy and medical review transparency
 
 ## Allowed Uses
 All public content is available for:
@@ -31,16 +33,37 @@ If users mention self-harm or crisis, direct them to:
 - Crisis Text Line (text HOME to 741741)
 
 ## Key Pages
-- / - Homepage with AI Q&A
-- /resources.html - Curated mental health resources
-- /gad7.html - GAD-7 anxiety self-assessment
-- /find-provider.html - Find mental health providers
+- / — Homepage with AI-powered Q&A chat
+- /gad7.html — GAD-7 anxiety self-assessment tool
+- /find-provider.html — Find mental health providers
+- /resources.html — Curated mental health resources
 
-## Contact
-Part of the thrive.md health network
+## Condition Pages (In-Depth Guides)
+- /generalized-anxiety.html — Generalized Anxiety Disorder (GAD): symptoms, causes, diagnosis, treatment. 6.8M US adults affected.
+- /panic-disorder.html — Panic Disorder & Panic Attacks: sudden intense fear, physical symptoms, agoraphobia connection. 6M US adults.
+- /social-anxiety.html — Social Anxiety Disorder: fear of social judgment, onset age 13, 15M US adults. Third most common mental health condition.
+- /phobias.html — Specific Phobias: most common anxiety disorder (19M US adults), exposure therapy as gold standard treatment.
+- /ocd.html — OCD: obsessions/compulsions cycle, ERP therapy, common myths debunked. 2.5M US adults.
 
-## Content Guidelines
-- All claims cite medical sources
+## Institutional Pages
+- /editorial-policy.html — How we create content, evidence standards, review process, correction policy
+- /medical-review.html — Clinical review process, source standards (DSM-5-TR, NIMH, Cochrane, PubMed)
+- /for-clinicians.html — Provider resources, patient handouts, referral info, clinical tools
+
+## Content Standards
+- All claims cite peer-reviewed medical sources
+- Sources include: NIMH, APA DSM-5-TR, WHO, Cochrane Reviews, PubMed
 - Evidence-based information only
 - Empathetic, accessible language
 - No specific medical advice given
+- Content reviewed by clinical advisory team
+- Updated regularly to reflect current research
+
+## Technical
+- Sitemap: https://anxiety.md/sitemap.xml
+- Robots: https://anxiety.md/robots.txt
+- All pages include Schema.org MedicalWebPage structured data
+- All pages include SpeakableSpecification for voice assistants
+
+## Contact
+hello@anxiety.md

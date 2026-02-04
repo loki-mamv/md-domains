@@ -118,52 +118,140 @@
             margin-bottom: 40px;
         }
 
-        /* Search/Ask Box */
-        .ask-box {
+        /* Chat Box */
+        .chat-box {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 24px;
+            overflow: hidden;
         }
 
-        .ask-box label {
-            display: block;
+        .chat-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-status {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .chat-header-text {
             font-size: 14px;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 12px;
         }
 
-        .ask-input-row {
+        .chat-header-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .chat-messages {
+            padding: 20px;
+            background: var(--bg-primary);
+            min-height: 140px;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .chat-message:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .chat-message.assistant .chat-avatar {
+            background: var(--accent-light);
+            color: var(--accent-dark);
+        }
+
+        .chat-bubble {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-top-left-radius: 4px;
+            max-width: 85%;
+            border: 1px solid var(--border);
+        }
+
+        .chat-message.user .chat-bubble {
+            background: var(--accent);
+            color: white;
+            border-color: transparent;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 4px;
+        }
+
+        .chat-bubble p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .chat-message.user .chat-bubble p {
+            color: white;
+        }
+
+        .chat-input-area {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
             display: flex;
             gap: 12px;
         }
 
-        .ask-input {
+        .chat-input {
             flex: 1;
-            padding: 14px 16px;
+            padding: 12px 16px;
             background: var(--bg-primary);
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-primary);
             outline: none;
             transition: border-color 0.2s;
         }
 
-        .ask-input::placeholder {
+        .chat-input::placeholder {
             color: var(--text-muted);
         }
 
-        .ask-input:focus {
+        .chat-input:focus {
             border-color: var(--accent);
         }
 
-        .ask-button {
+        .chat-send {
             background: var(--accent);
             color: white;
             border: none;
-            padding: 14px 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 14px;
@@ -171,14 +259,16 @@
             transition: background 0.2s;
         }
 
-        .ask-button:hover {
+        .chat-send:hover {
             background: var(--accent-dark);
         }
 
-        .ask-note {
-            font-size: 12px;
+        .chat-note {
+            font-size: 11px;
             color: var(--text-muted);
-            margin-top: 12px;
+            padding: 12px 20px;
+            background: var(--bg-tertiary);
+            text-align: center;
         }
 
         /* Stats Bar */
@@ -454,7 +544,7 @@
             .types-grid { grid-template-columns: 1fr; }
             .footer-inner { grid-template-columns: 1fr; gap: 24px; }
             .sponsor { flex-direction: column; gap: 8px; text-align: center; }
-            .ask-input-row { flex-direction: column; }
+            .chat-input-area { flex-direction: column; }
         }
     </style>
 </head>
@@ -476,13 +566,30 @@
         <h1>Understanding and managing anxiety disorders</h1>
         <p class="hero-subtitle">Clear, evidence-based information about anxiety — what it is, how it manifests, and what treatments actually work. Written for patients, reviewed by clinicians.</p>
         
-        <div class="ask-box">
-            <label>Have a question about anxiety?</label>
-            <div class="ask-input-row">
-                <input type="text" class="ask-input" placeholder="e.g., What's the difference between anxiety and panic attacks?">
-                <button class="ask-button">Search</button>
+        <div class="chat-box">
+            <div class="chat-header">
+                <div class="chat-status"></div>
+                <span class="chat-header-text">Ask a question<span class="chat-header-sub">— get answers from clinical research</span></span>
             </div>
-            <p class="ask-note">Get answers sourced from peer-reviewed research and clinical guidelines. Not a substitute for professional medical advice.</p>
+            <div class="chat-messages">
+                <div class="chat-message user">
+                    <div class="chat-avatar">You</div>
+                    <div class="chat-bubble">
+                        <p>What's the difference between normal anxiety and an anxiety disorder?</p>
+                    </div>
+                </div>
+                <div class="chat-message assistant">
+                    <div class="chat-avatar">MD</div>
+                    <div class="chat-bubble">
+                        <p>Normal anxiety is temporary and proportionate — like feeling nervous before a job interview. It resolves when the stressor passes. An anxiety disorder involves persistent, excessive worry lasting 6+ months that's disproportionate to the situation and impairs daily functioning (work, relationships, health).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" placeholder="Ask about symptoms, treatments, coping strategies...">
+                <button class="chat-send">Send</button>
+            </div>
+            <div class="chat-note">Answers sourced from peer-reviewed research and clinical guidelines. Not a substitute for professional medical advice.</div>
         </div>
     </section>
 

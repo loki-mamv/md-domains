@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anxiety.md — Understanding & Managing Anxiety</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fafaf9;
+            --bg-secondary: #ffffff;
+            --bg-accent: #f0fdf4;
+            --text-primary: #1c1917;
+            --text-secondary: #57534e;
+            --text-muted: #a8a29e;
+            --accent: #059669;
+            --accent-light: #10b981;
+            --accent-bg: #ecfdf5;
+            --border: #e7e5e4;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--text-primary);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* AI Chat Widget */
+        .chat-widget {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: var(--accent);
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-header-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .chat-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .chat-header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            padding: 24px;
+            min-height: 200px;
+            background: #f9fafb;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .chat-message.user .chat-avatar {
+            background: var(--text-secondary);
+        }
+
+        .chat-bubble {
+            background: var(--bg-secondary);
+            padding: 14px 18px;
+            border-radius: 16px;
+            border-top-left-radius: 4px;
+            max-width: 80%;
+            box-shadow: var(--shadow);
+        }
+
+        .chat-message.user .chat-bubble {
+            background: var(--accent);
+            color: white;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 4px;
+        }
+
+        .chat-bubble p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .chat-input-area {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent);
+        }
+
+        .chat-send {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .chat-send:hover {
+            background: var(--accent-light);
+        }
+
+        .chat-disclaimer {
+            padding: 12px 24px;
+            background: #fffbeb;
+            font-size: 12px;
+            color: #92400e;
+            text-align: center;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .content-section {
+            margin-bottom: 64px;
+        }
+
+        .content-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .content-section p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .content-section ul {
+            margin-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content-section li {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .info-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Stats */
+        .stats-banner {
+            background: var(--accent);
+            color: white;
+            padding: 48px 24px;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: center;
+            margin: 48px 0;
+        }
+
+        .stat h4 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat p {
+            font-size: 15px;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-light);
+        }
+
+        /* Sponsor Banner */
+        .sponsor-banner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 28px;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .sponsor-banner p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .sponsor-banner strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .sponsor-logo {
+            padding: 8px 20px;
+            background: var(--accent-bg);
+            border-radius: 8px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 64px 24px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            margin-top: 16px;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 48px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .stats-banner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .sponsor-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">anxiety<span>.md</span></a>
+            <nav>
+                <a href="#about">About Anxiety</a>
+                <a href="#symptoms">Symptoms</a>
+                <a href="#treatment">Treatment</a>
+                <a href="#resources">Resources</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Understanding Anxiety</h1>
+        <p>Get clear, evidence-based information about anxiety disorders. Ask questions, find resources, and take control of your mental health.</p>
+        
+        <div class="chat-widget">
+            <div class="chat-header">
+                <div class="chat-header-icon">🧠</div>
+                <div>
+                    <h3>Ask About Anxiety</h3>
+                    <p>Get helpful information instantly</p>
+                </div>
+            </div>
+            <div class="chat-messages">
+                <div class="chat-message user">
+                    <div class="chat-avatar">Y</div>
+                    <div class="chat-bubble">
+                        <p>What's the difference between normal anxiety and an anxiety disorder?</p>
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="chat-avatar">AI</div>
+                    <div class="chat-bubble">
+                        <p>Great question! Normal anxiety is a temporary response to stress—like feeling nervous before a presentation. An anxiety disorder involves persistent, excessive worry that interferes with daily life for 6+ months.</p>
+                        <p style="margin-top: 12px; margin-bottom: 0;">Key differences: intensity (disproportionate to the situation), duration (doesn't go away), and impact (affects work, relationships, or health).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" placeholder="Ask a question about anxiety...">
+                <button class="chat-send">Ask</button>
+            </div>
+            <div class="chat-disclaimer">
+                ⚠️ This is for informational purposes only—not medical advice. Please consult a healthcare provider for diagnosis and treatment.
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Sponsor placement example -->
+        <div class="sponsor-banner">
+            <div>
+                <p><strong>Sponsored by</strong> — Professional online therapy, anytime, anywhere</p>
+            </div>
+            <div class="sponsor-logo">BetterHelp</div>
+        </div>
+
+        <section class="content-section" id="about">
+            <h2>What Is Anxiety?</h2>
+            <p>Anxiety is a normal emotion characterized by feelings of tension, worried thoughts, and physical changes like increased blood pressure. While everyone experiences anxiety, anxiety disorders involve more than temporary worry or fear.</p>
+            <p>For people with anxiety disorders, the anxiety does not go away and can get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships.</p>
+            
+            <div class="stats-banner">
+                <div class="stat">
+                    <h4>40M+</h4>
+                    <p>Adults affected annually in the US</p>
+                </div>
+                <div class="stat">
+                    <h4>31%</h4>
+                    <p>Will experience anxiety disorder in lifetime</p>
+                </div>
+                <div class="stat">
+                    <h4>80%</h4>
+                    <p>Respond well to treatment</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="symptoms">
+            <h2>Types of Anxiety Disorders</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-card-icon">😰</div>
+                    <h3>Generalized Anxiety Disorder</h3>
+                    <p>Persistent and excessive worry about various aspects of life, including work, health, and everyday matters.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">💔</div>
+                    <h3>Panic Disorder</h3>
+                    <p>Recurrent unexpected panic attacks—sudden periods of intense fear with physical symptoms like racing heart.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">👥</div>
+                    <h3>Social Anxiety Disorder</h3>
+                    <p>Intense fear of social situations where one might be judged, embarrassed, or humiliated.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">🚫</div>
+                    <h3>Specific Phobias</h3>
+                    <p>Intense, irrational fear of specific objects or situations, like heights, flying, or spiders.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="treatment">
+            <h2>Treatment Options</h2>
+            <p>Anxiety disorders are highly treatable, yet only about 37% of those suffering receive treatment. Several effective treatment options exist:</p>
+            <ul>
+                <li><strong>Cognitive Behavioral Therapy (CBT)</strong> — The gold standard for anxiety treatment. Helps identify and change negative thought patterns.</li>
+                <li><strong>Medication</strong> — SSRIs, SNRIs, and benzodiazepines can help manage symptoms. Always consult a psychiatrist.</li>
+                <li><strong>Lifestyle Changes</strong> — Regular exercise, adequate sleep, limiting caffeine, and stress management techniques.</li>
+                <li><strong>Mindfulness & Relaxation</strong> — Meditation, deep breathing, and progressive muscle relaxation can reduce symptoms.</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h2>Take the First Step</h2>
+            <p>If anxiety is affecting your daily life, talking to a professional can help. Online therapy makes it easier than ever to get started.</p>
+            <a href="#" class="cta-button">Find a Therapist →</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="/" class="logo">anxiety<span>.md</span></a>
+                <p>Providing clear, evidence-based information about anxiety disorders. Our mission is to reduce stigma and help people find the resources they need.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Topics</h4>
+                <a href="#">Generalized Anxiety</a>
+                <a href="#">Panic Attacks</a>
+                <a href="#">Social Anxiety</a>
+                <a href="#">Phobias</a>
+                <a href="#">PTSD</a>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <a href="#">Find a Therapist</a>
+                <a href="#">Crisis Hotlines</a>
+                <a href="#">Self-Help Tools</a>
+                <a href="#">Research</a>
+            </div>
+            <div class="footer-links">
+                <h4>About</h4>
+                <a href="#">Our Mission</a>
+                <a href="#">Medical Review</a>
+                <a href="#">Contact</a>
+                <a href="#">Advertise</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 anxiety.md — Information is not medical advice</p>
+            <p>Privacy Policy · Terms of Use</p>
+        </div>
+    </footer>
+</body>
+</html>

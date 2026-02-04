@@ -1,0 +1,41 @@
+Domain,Status,Category,Est. Monthly Searches,Notes
+anxiety.md,LIKELY AVAILABLE,Consumer Health - Mental,40M+ "anxiety",Top priority - huge volume
+depression.md,LIKELY AVAILABLE,Consumer Health - Mental,30M+ "depression",Top priority - huge volume  
+diabetes.md,LIKELY AVAILABLE,Consumer Health - Chronic,20M+ "diabetes",Top priority
+insomnia.md,LIKELY AVAILABLE,Consumer Health - Sleep,5M+ "insomnia",Strong condition keyword
+migraine.md,LIKELY AVAILABLE,Consumer Health - Pain,8M+ "migraine",Strong condition keyword
+hypertension.md,LIKELY AVAILABLE,Consumer Health - Chronic,3M+ "hypertension",Medical term - good for authority
+ozempic.md,LIKELY AVAILABLE,Consumer Health - GLP-1,15M+ "ozempic",Hot trending drug
+wegovy.md,LIKELY AVAILABLE,Consumer Health - GLP-1,5M+ "wegovy",Hot trending drug
+mounjaro.md,LIKELY AVAILABLE,Consumer Health - GLP-1,8M+ "mounjaro",Hot trending drug
+semaglutide.md,LIKELY AVAILABLE,Consumer Health - GLP-1,2M+ "semaglutide",Generic drug name
+fhir.md,LIKELY AVAILABLE,B2B - Healthcare Tech,50K+ "fhir",Developer audience - high CPM
+hipaa.md,LIKELY AVAILABLE,B2B - Compliance,200K+ "hipaa",Compliance audience - high CPM
+dme.md,LIKELY AVAILABLE,B2B - Healthcare,100K+ "dme",GenHealth tie-in
+priorauth.md,LIKELY AVAILABLE,B2B - Healthcare,20K+ "prior authorization",GenHealth tie-in
+ptsd.md,LIKELY AVAILABLE,Consumer Health - Mental,5M+ "ptsd",Strong condition keyword
+ocd.md,LIKELY AVAILABLE,Consumer Health - Mental,3M+ "ocd",Strong condition keyword
+bipolar.md,LIKELY AVAILABLE,Consumer Health - Mental,4M+ "bipolar",Strong condition keyword
+therapy.md,LIKELY AVAILABLE,Consumer Health - Wellness,10M+ "therapy",Broad wellness term
+meditation.md,LIKELY AVAILABLE,Consumer Health - Wellness,5M+ "meditation",Broad wellness term
+nutrition.md,LIKELY AVAILABLE,Consumer Health - Wellness,8M+ "nutrition",Broad wellness term
+fitness.md,LIKELY AVAILABLE,Consumer Health - Wellness,15M+ "fitness",Broad wellness term
+pain.md,LIKELY AVAILABLE,Consumer Health - Symptom,20M+ "pain",High volume symptom
+stress.md,LIKELY AVAILABLE,Consumer Health - Mental,15M+ "stress",High volume symptom
+skin.md,LIKELY AVAILABLE,Consumer Health - Derma,10M+ "skin",Broad dermatology term
+hormone.md,LIKELY AVAILABLE,Consumer Health - Endocrine,5M+ "hormone",Growing category
+sugar.md,LIKELY AVAILABLE,Consumer Health - Metabolic,8M+ "blood sugar",Diabetes-adjacent
+diet.md,LIKELY AVAILABLE,Consumer Health - Wellness,20M+ "diet",Massive wellness term
+immune.md,LIKELY AVAILABLE,Consumer Health - Wellness,5M+ "immune",Post-COVID interest
+adhd.md,TAKEN (active),Consumer Health - Mental,15M+ "adhd",Telehealth clinic in Texas
+weight.md,TAKEN (301),Consumer Health - Wellness,50M+ "weight loss",Redirects - registered
+sleep.md,TAKEN (410),Consumer Health - Sleep,30M+ "sleep",Gone - was registered
+gut.md,TAKEN (active),Consumer Health - GI,10M+ "gut health",Active site
+mood.md,TAKEN (active),Consumer Health - Mental,5M+ "mood",Active site
+brain.md,TAKEN (301),Consumer Health - Neuro,15M+ "brain",Redirects - registered
+energy.md,TAKEN (active),Consumer Health - Wellness,10M+ "energy",Active site
+detox.md,TAKEN (active),Consumer Health - Wellness,3M+ "detox",Active site
+heal.md,TAKEN (active),Consumer Health - Wellness,5M+ "healing",Active site
+fertility.md,TAKEN (active),Consumer Health - Repro,8M+ "fertility",Moldovan supplement shop
+autism.md,TAKEN (active),Consumer Health - Neuro,5M+ "autism",Moldovan ABA clinic
+skincare.md,TAKEN (301),Consumer Health - Derma,10M+ "skincare",Redirects - registered

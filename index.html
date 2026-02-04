@@ -1143,24 +1143,32 @@
                     throw new Error(error.error || 'Request failed');
                 }
                 
-                // Check for session limit
+                // Check content type - handle JSON (production) vs SSE (local)
                 const contentType = res.headers.get('content-type');
                 if (contentType && contentType.includes('application/json')) {
                     const data = await res.json();
+                    cursor.remove();
+                    
                     if (data.error === 'SESSION_LIMIT') {
-                        cursor.remove();
                         responseDiv.querySelector('.chat-bubble').innerHTML = `
                             <p>${data.message}</p>
                             <a href="${data.cta.url}" style="display:inline-block;margin-top:12px;padding:10px 20px;background:var(--accent);color:white;text-decoration:none;border-radius:8px;font-weight:600;">${data.cta.text}</a>
                         `;
-                        activeBtn.disabled = false;
-                        activeBtnText.style.display = 'inline';
-                        activeSpinner.style.display = 'none';
-                        return;
+                    } else if (data.error) {
+                        responseDiv.querySelector('.chat-bubble').innerHTML = `<p style="color:#ef4444;">Sorry: ${data.error}</p>`;
+                    } else if (data.answer) {
+                        // Non-streaming response from production
+                        responseDiv.querySelector('.chat-bubble').innerHTML = `<p>${formatResponse(data.answer)}</p>`;
                     }
+                    
+                    activeBtn.disabled = false;
+                    activeBtnText.style.display = 'inline';
+                    activeSpinner.style.display = 'none';
+                    activeMessagesDiv.scrollTop = activeMessagesDiv.scrollHeight;
+                    return;
                 }
                 
-                // Read SSE stream
+                // Read SSE stream (local dev server)
                 const reader = res.body.getReader();
                 const decoder = new TextDecoder();
                 

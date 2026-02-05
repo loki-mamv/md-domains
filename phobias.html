@@ -24,23 +24,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Specific Phobias",
-      "description": "Comprehensive, evidence-based guide to specific phobias including types, symptoms, causes, diagnosis, and treatment options.",
-      "url": "https://anxiety.md/phobias.html",
-      "lastReviewed": "2026-02-04",
-      "reviewedBy": { "@type": "Organization", "name": "anxiety.md Clinical Advisory Team" },
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Specific Phobia",
-        "alternateName": ["Phobia", "Simple Phobia"],
-        "epidemiology": "Affects approximately 19 million adults in the United States (9.1% of the population), making it the most common anxiety disorder.",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "Virtual Reality Exposure Therapy"}
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "name": "Specific Phobias",
+          "description": "Comprehensive, evidence-based guide to specific phobias including types, symptoms, causes, diagnosis, and treatment options.",
+          "url": "https://anxiety.md/phobias.html",
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": { "@type": "Organization", "name": "thrive.md Clinical Advisory Team" },
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Specific Phobia",
+            "alternateName": ["Phobia", "Simple Phobia"],
+            "epidemiology": "Affects approximately 19 million adults in the United States (9.1% of the population), making it the most common anxiety disorder.",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "Virtual Reality Exposure Therapy"}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a specific phobia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A specific phobia is an intense, irrational fear of a particular object, situation, or activity that poses little or no actual danger. Common phobias include fear of heights (acrophobia), spiders (arachnophobia), flying (aviophobia), and enclosed spaces (claustrophobia). Phobias affect about 19 million American adults, making them the most common anxiety disorder."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How are phobias different from normal fears?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While fears are normal and often protective, phobias are characterized by excessive, unreasonable fear that is out of proportion to the actual threat. Phobias cause significant distress and avoidance behavior that interferes with daily life. Someone with a phobia recognizes their fear is excessive but feels unable to control it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the most effective treatment for phobias?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Exposure therapy is the gold standard treatment for specific phobias, with success rates of 80-90%. It involves gradually facing the feared object or situation in a controlled, systematic way until the fear response diminishes. A single session of intensive exposure can sometimes produce lasting results. Virtual reality exposure therapy is also increasingly used."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">

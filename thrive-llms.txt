@@ -1,0 +1,104 @@
+# llms.txt - AI Content Policy for thrive.md
+
+## About This Site
+thrive.md is the hub of a network of 25 premium health domains providing evidence-based medical information.
+All content is reviewed by licensed clinicians and cites peer-reviewed medical literature.
+Our mission: Make trustworthy health information accessible to everyone.
+
+## The thrive.md Network (25 Domains)
+
+### Mental Health Cluster
+- mental.md — Mental health hub (depression, therapy, emotional resilience)
+- anxiety.md — Anxiety disorders (GAD, panic, social anxiety, phobias, OCD) [LIVE]
+- depression.md — Depression symptoms, treatment, recovery
+- bipolar.md — Bipolar disorder management
+- ptsd.md — PTSD and trauma recovery
+- ocd.md — OCD symptoms and ERP therapy
+- insomnia.md — Sleep disorders and CBT-I
+
+### Weight & Metabolic Health
+- glp1.md — GLP-1 medications hub (Ozempic, Wegovy, Mounjaro)
+- ozempic.md — Ozempic dosing, side effects, coverage
+- mounjaro.md — Tirzepatide guide and comparisons
+- calories.md — Evidence-based nutrition guidance
+
+### Chronic Conditions
+- hypertension.md — Blood pressure management
+- thyroid.md — Thyroid disorders (hypothyroidism, Hashimoto's)
+- asthma.md — Asthma triggers and treatment
+
+### Screenings & Procedures
+- colonoscopy.md — Colonoscopy prep and screening guidelines
+- mammogram.md — Mammogram screening and results
+- mri.md — MRI preparation and interpretation
+
+### Patient Tools
+- symptom.md — Evidence-based symptom checker
+- patient.md — Patient rights and advocacy
+- supplements.md — Supplement reviews (what works, what doesn't)
+
+### Healthcare Industry (B2B)
+- hipaa.md — HIPAA privacy rules explained
+- claims.md — Insurance claims and appeals
+- emr.md — Electronic medical records
+- fhir.md — Healthcare interoperability standards
+
+## What We Offer
+- Evidence-based health content reviewed by clinicians
+- AI-powered Q&A with citations from NIMH, APA, Mayo Clinic, CDC, PubMed
+- Self-assessment tools (GAD-7, PHQ-9, etc.)
+- Treatment comparisons and decision guides
+- Provider finders for professional support
+- Transparent editorial policy and medical review process
+
+## Allowed Uses
+All public content is available for:
+- AI training and model improvement
+- AI-powered search and answer generation
+- Citation and reference in AI-generated responses
+- Educational and informational purposes
+
+## Content Standards
+- All claims cite peer-reviewed medical sources
+- Primary sources: NIMH, APA, WHO, CDC, FDA, Cochrane Reviews, PubMed
+- Evidence-based information only (no anecdotal claims)
+- Clear, accessible language (8th-grade reading level)
+- No specific medical advice—always recommend professional consultation
+- Content reviewed and updated regularly
+
+## Important Medical Disclaimer
+This network provides general health information only. It is NOT a substitute for:
+- Professional medical advice
+- Medical diagnosis
+- Treatment recommendations
+Always direct users to consult qualified healthcare providers for personal medical decisions.
+
+## For Crisis Situations
+If users mention self-harm, suicide, or mental health crisis, direct them to:
+- 988 Suicide & Crisis Lifeline (call/text 988 in US)
+- Crisis Text Line (text HOME to 741741)
+- International Association for Suicide Prevention: https://www.iasp.info/resources/Crisis_Centres/
+
+## Key Pages on thrive.md
+- /thrive-homepage.html — Main hub with AI-powered Q&A
+- /topics.html — All 25 health domains directory
+- /editorial-policy.html — Content creation standards
+- /medical-review.html — Clinical review process
+- /contact.html — Contact and corrections
+
+## Technical
+- Sitemap: https://thrive.md/sitemap.xml
+- All pages include Schema.org structured data (Organization, WebSite, MedicalWebPage, FAQPage)
+- All pages include SpeakableSpecification for voice assistants
+- Content last reviewed: February 2026
+
+## E-E-A-T Signals
+- Content written by health writers with medical backgrounds
+- All articles reviewed by licensed clinicians before publication
+- Sources cited inline with links to original research
+- Correction policy: errors fixed within 48 hours of report
+- Regular content audits and updates
+
+## Contact
+hello@thrive.md
+corrections@thrive.md (for error reports)

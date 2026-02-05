@@ -35,36 +35,109 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Understanding and Managing Anxiety",
-      "description": "Evidence-based information about anxiety disorders, symptoms, treatments, and coping strategies.",
-      "url": "https://anxiety.md/",
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Anxiety Disorder",
-        "alternateName": ["Generalized Anxiety Disorder", "GAD", "Anxiety"],
-        "description": "A mental health condition characterized by persistent, excessive worry about various aspects of daily life.",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "Medication (SSRIs, SNRIs)"},
-          {"@type": "MedicalTherapy", "name": "Mindfulness and Relaxation Techniques"}
-        ]
-      },
-      "about": {
-        "@type": "MedicalCondition",
-        "name": "Anxiety Disorders"
-      },
-      "audience": {
-        "@type": "PeopleAudience",
-        "healthCondition": {
-          "@type": "MedicalCondition",
-          "name": "Anxiety"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://thrive.md/#organization",
+          "name": "thrive.md",
+          "url": "https://thrive.md",
+          "description": "A network of 25 premium health domains providing evidence-based medical information."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://anxiety.md/#website",
+          "url": "https://anxiety.md",
+          "name": "anxiety.md — Understanding and Managing Anxiety",
+          "publisher": {"@id": "https://thrive.md/#organization"},
+          "isPartOf": {"@id": "https://thrive.md/#organization"}
+        },
+        {
+          "@type": "MedicalWebPage",
+          "@id": "https://anxiety.md/#webpage",
+          "name": "Understanding and Managing Anxiety",
+          "description": "Evidence-based information about anxiety disorders, symptoms, treatments, and coping strategies.",
+          "url": "https://anxiety.md/",
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": {
+            "@type": "Organization",
+            "name": "thrive.md Clinical Advisory Team"
+          },
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Anxiety Disorder",
+            "alternateName": ["Generalized Anxiety Disorder", "GAD", "Anxiety"],
+            "description": "A mental health condition characterized by persistent, excessive worry about various aspects of daily life.",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "Medication (SSRIs, SNRIs)"},
+              {"@type": "MedicalTherapy", "name": "Mindfulness and Relaxation Techniques"}
+            ],
+            "epidemiology": "Affects 40 million adults in the United States (19.1% of population)"
+          },
+          "about": {
+            "@type": "MedicalCondition",
+            "name": "Anxiety Disorders"
+          },
+          "audience": {
+            "@type": "PeopleAudience",
+            "healthCondition": {
+              "@type": "MedicalCondition",
+              "name": "Anxiety"
+            }
+          },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero h1", ".hero-subtitle", ".stat-number"]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://anxiety.md/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What causes anxiety?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anxiety can be caused by a combination of factors including genetics, brain chemistry imbalances, personality traits, and stressful life events. Research shows anxiety disorders often run in families, and traumatic experiences can trigger or worsen symptoms. Chronic stress, medical conditions, and substance use can also contribute to anxiety disorders."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the symptoms of anxiety?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Common anxiety symptoms include excessive worry, restlessness, difficulty concentrating, irritability, muscle tension, and sleep problems. Physical symptoms can include rapid heartbeat, sweating, trembling, shortness of breath, and gastrointestinal issues. Symptoms vary by anxiety disorder type—panic attacks for panic disorder, fear of social situations for social anxiety."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is anxiety treated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anxiety is highly treatable. Evidence-based treatments include Cognitive Behavioral Therapy (CBT), which is considered the gold standard, and medications like SSRIs and SNRIs. Other effective approaches include exposure therapy, mindfulness-based therapies, and lifestyle changes such as regular exercise, adequate sleep, and stress management techniques. Most people see significant improvement with treatment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between normal anxiety and an anxiety disorder?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Normal anxiety is a temporary response to stressful situations and typically subsides once the stressor passes. An anxiety disorder involves persistent, excessive worry that is difficult to control, lasts for months, and significantly interferes with daily activities, work, or relationships. If anxiety is causing impairment in your life, it may be time to seek professional evaluation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How common are anxiety disorders?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Anxiety disorders are the most common mental health condition in the United States, affecting 40 million adults (19.1% of the population) each year. Despite being highly treatable, only 36.9% of those affected receive treatment. Women are twice as likely as men to be affected, and symptoms often begin in childhood or adolescence."
+              }
+            }
+          ]
         }
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".hero h1", ".hero-subtitle", ".stat-number"]
-      }
+      ]
     }
     </script>
     

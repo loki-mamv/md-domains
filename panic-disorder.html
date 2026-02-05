@@ -24,23 +24,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Panic Disorder & Panic Attacks",
-      "description": "Comprehensive, evidence-based guide to Panic Disorder including symptoms, causes, diagnosis, and treatment options.",
-      "url": "https://anxiety.md/panic-disorder.html",
-      "lastReviewed": "2026-02-04",
-      "reviewedBy": { "@type": "Organization", "name": "anxiety.md Clinical Advisory Team" },
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Panic Disorder",
-        "alternateName": ["Panic Attacks", "Panic Anxiety"],
-        "epidemiology": "Affects approximately 6 million adults in the United States (2.7% of the population).",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
-          {"@type": "MedicalTherapy", "name": "SSRIs/SNRIs"}
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "name": "Panic Disorder & Panic Attacks",
+          "description": "Comprehensive, evidence-based guide to Panic Disorder including symptoms, causes, diagnosis, and treatment options.",
+          "url": "https://anxiety.md/panic-disorder.html",
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": { "@type": "Organization", "name": "thrive.md Clinical Advisory Team" },
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Panic Disorder",
+            "alternateName": ["Panic Attacks", "Panic Anxiety"],
+            "epidemiology": "Affects approximately 6 million adults in the United States (2.7% of the population).",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
+              {"@type": "MedicalTherapy", "name": "SSRIs/SNRIs"}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a panic attack?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A panic attack is a sudden episode of intense fear that triggers severe physical reactions when there is no real danger. Symptoms include rapid heartbeat, sweating, trembling, shortness of breath, chest pain, and feelings of impending doom. Attacks typically peak within minutes and can occur unexpectedly or be triggered by feared situations."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between panic attacks and panic disorder?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While many people experience one or two panic attacks in their lifetime, panic disorder is diagnosed when a person has recurrent, unexpected panic attacks AND persistent concern about having more attacks or changes their behavior to avoid attacks. Panic disorder affects about 2-3% of Americans and is twice as common in women."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can panic disorder be cured?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Panic disorder is highly treatable. Cognitive Behavioral Therapy (CBT), particularly exposure-based CBT, is very effective, with 70-90% of patients experiencing significant improvement. Medications like SSRIs and SNRIs also help. With proper treatment, many people achieve full remission of symptoms."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">

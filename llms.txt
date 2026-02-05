@@ -63,8 +63,13 @@ If users mention self-harm or crisis, direct them to:
 ## Technical
 - Sitemap: https://anxiety.md/sitemap.xml
 - Robots: https://anxiety.md/robots.txt
-- All pages include Schema.org MedicalWebPage structured data
-- All pages include SpeakableSpecification for voice assistants
+- All pages include Schema.org structured data (@graph format):
+  - MedicalWebPage with lastReviewed dates
+  - MedicalCondition with epidemiology and treatment data
+  - FAQPage with common questions and evidence-based answers
+  - SpeakableSpecification for voice assistants
+- Entity connections to parent organization thrive.md
+- Content last reviewed: February 2026
 
 ## Contact
 hello@thrive.md

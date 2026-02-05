@@ -24,32 +24,78 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Generalized Anxiety Disorder (GAD)",
-      "description": "Comprehensive, evidence-based guide to Generalized Anxiety Disorder including symptoms, causes, diagnosis, and treatment options.",
-      "url": "https://anxiety.md/generalized-anxiety.html",
-      "lastReviewed": "2026-02-04",
-      "reviewedBy": {
-        "@type": "Organization",
-        "name": "anxiety.md Clinical Advisory Team"
-      },
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Generalized Anxiety Disorder",
-        "alternateName": ["GAD", "Generalized Anxiety"],
-        "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Brain" },
-        "epidemiology": "Affects approximately 6.8 million adults in the United States (3.1% of the population).",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "Selective Serotonin Reuptake Inhibitors (SSRIs)"},
-          {"@type": "MedicalTherapy", "name": "Serotonin-Norepinephrine Reuptake Inhibitors (SNRIs)"}
-        ],
-        "riskFactor": [
-          {"@type": "MedicalRiskFactor", "name": "Family history of anxiety disorders"},
-          {"@type": "MedicalRiskFactor", "name": "Chronic stress"},
-          {"@type": "MedicalRiskFactor", "name": "Childhood adversity"}
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "name": "Generalized Anxiety Disorder (GAD)",
+          "description": "Comprehensive, evidence-based guide to Generalized Anxiety Disorder including symptoms, causes, diagnosis, and treatment options.",
+          "url": "https://anxiety.md/generalized-anxiety.html",
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": {
+            "@type": "Organization",
+            "name": "thrive.md Clinical Advisory Team"
+          },
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Generalized Anxiety Disorder",
+            "alternateName": ["GAD", "Generalized Anxiety"],
+            "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Brain" },
+            "epidemiology": "Affects approximately 6.8 million adults in the United States (3.1% of the population).",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "Selective Serotonin Reuptake Inhibitors (SSRIs)"},
+              {"@type": "MedicalTherapy", "name": "Serotonin-Norepinephrine Reuptake Inhibitors (SNRIs)"}
+            ],
+            "riskFactor": [
+              {"@type": "MedicalRiskFactor", "name": "Family history of anxiety disorders"},
+              {"@type": "MedicalRiskFactor", "name": "Chronic stress"},
+              {"@type": "MedicalRiskFactor", "name": "Childhood adversity"}
+            ]
+          },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".stat-card"]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Generalized Anxiety Disorder (GAD)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generalized Anxiety Disorder (GAD) is a mental health condition characterized by persistent and excessive worry about various aspects of daily life, such as work, health, family, and finances. Unlike normal worry, GAD is difficult to control and occurs most days for at least 6 months, significantly interfering with daily activities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How common is Generalized Anxiety Disorder?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GAD affects approximately 6.8 million adults in the United States, representing about 3.1% of the population. Women are twice as likely as men to be affected. GAD often co-occurs with other mental health conditions like depression, and symptoms typically develop gradually, often beginning in childhood or adolescence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the main symptoms of GAD?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The main symptoms of GAD include excessive worry that is difficult to control, restlessness or feeling on edge, fatigue, difficulty concentrating, irritability, muscle tension, and sleep disturbances. Physical symptoms may include headaches, stomach problems, and unexplained aches. Symptoms must be present most days for at least 6 months for diagnosis."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is GAD treated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GAD is effectively treated with psychotherapy, medication, or a combination of both. Cognitive Behavioral Therapy (CBT) is considered the gold standard psychotherapy for GAD, helping patients identify and change unhelpful thought patterns. Medications including SSRIs (like sertraline) and SNRIs (like venlafaxine) are FDA-approved for GAD treatment. Most people experience significant improvement with proper treatment."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">

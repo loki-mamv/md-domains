@@ -24,23 +24,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Social Anxiety Disorder",
-      "description": "Comprehensive, evidence-based guide to Social Anxiety Disorder including symptoms, causes, diagnosis, and treatment options.",
-      "url": "https://anxiety.md/social-anxiety.html",
-      "lastReviewed": "2026-02-04",
-      "reviewedBy": { "@type": "Organization", "name": "anxiety.md Clinical Advisory Team" },
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Social Anxiety Disorder",
-        "alternateName": ["Social Phobia", "Social Anxiety"],
-        "epidemiology": "Affects approximately 15 million adults in the United States (7.1% of the population).",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
-          {"@type": "MedicalTherapy", "name": "SSRIs/SNRIs"}
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "name": "Social Anxiety Disorder",
+          "description": "Comprehensive, evidence-based guide to Social Anxiety Disorder including symptoms, causes, diagnosis, and treatment options.",
+          "url": "https://anxiety.md/social-anxiety.html",
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": { "@type": "Organization", "name": "thrive.md Clinical Advisory Team" },
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Social Anxiety Disorder",
+            "alternateName": ["Social Phobia", "Social Anxiety"],
+            "epidemiology": "Affects approximately 15 million adults in the United States (7.1% of the population).",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "Exposure Therapy"},
+              {"@type": "MedicalTherapy", "name": "SSRIs/SNRIs"}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is social anxiety disorder?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Social anxiety disorder (also called social phobia) is an intense, persistent fear of being watched and judged by others in social situations. It goes beyond normal shyness—people with social anxiety may avoid social interactions entirely, experience physical symptoms like blushing and trembling, and have their daily life significantly impacted. It affects about 15 million American adults."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the signs of social anxiety?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Signs include intense fear of situations where you might be judged, worry about embarrassing yourself, fear that others will notice you look anxious, avoiding situations or enduring them with intense distress, and physical symptoms like blushing, sweating, trembling, nausea, and difficulty speaking. Many people develop social anxiety around age 13."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is social anxiety treated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Social anxiety is effectively treated with CBT, which helps identify and change negative thought patterns and gradually face feared situations. Exposure therapy is a key component. Medications like SSRIs (paroxetine, sertraline) and SNRIs are FDA-approved treatments. Many people benefit from a combination of therapy and medication."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">

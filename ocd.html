@@ -24,23 +24,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "OCD (Obsessive-Compulsive Disorder)",
-      "description": "Comprehensive, evidence-based guide to OCD including obsessions, compulsions, diagnosis, and treatment options including ERP therapy.",
-      "url": "https://anxiety.md/ocd.html",
-      "lastReviewed": "2026-02-04",
-      "reviewedBy": { "@type": "Organization", "name": "anxiety.md Clinical Advisory Team" },
-      "mainEntity": {
-        "@type": "MedicalCondition",
-        "name": "Obsessive-Compulsive Disorder",
-        "alternateName": ["OCD"],
-        "epidemiology": "Affects approximately 2.5 million adults in the United States (1.2% of the population).",
-        "possibleTreatment": [
-          {"@type": "MedicalTherapy", "name": "Exposure and Response Prevention (ERP)"},
-          {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
-          {"@type": "MedicalTherapy", "name": "SSRIs (higher doses)"}
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "MedicalWebPage",
+          "name": "OCD (Obsessive-Compulsive Disorder)",
+          "description": "Comprehensive, evidence-based guide to OCD including obsessions, compulsions, diagnosis, and treatment options including ERP therapy.",
+          "url": "https://anxiety.md/ocd.html",
+          "lastReviewed": "2026-02-04",
+          "reviewedBy": { "@type": "Organization", "name": "thrive.md Clinical Advisory Team" },
+          "isPartOf": {"@id": "https://anxiety.md/#website"},
+          "mainEntity": {
+            "@type": "MedicalCondition",
+            "name": "Obsessive-Compulsive Disorder",
+            "alternateName": ["OCD"],
+            "epidemiology": "Affects approximately 2.5 million adults in the United States (1.2% of the population).",
+            "possibleTreatment": [
+              {"@type": "MedicalTherapy", "name": "Exposure and Response Prevention (ERP)"},
+              {"@type": "MedicalTherapy", "name": "Cognitive Behavioral Therapy (CBT)"},
+              {"@type": "MedicalTherapy", "name": "SSRIs (higher doses)"}
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is OCD?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by unwanted, intrusive thoughts (obsessions) and repetitive behaviors or mental acts (compulsions) performed to reduce anxiety. Common obsessions include fears of contamination, harm, or making mistakes. Compulsions might include excessive cleaning, checking, counting, or arranging. OCD affects about 2.5 million American adults."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is OCD the same as being a perfectionist?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, OCD is not the same as perfectionism or liking things orderly. True OCD involves distressing, unwanted thoughts that cause significant anxiety and time-consuming rituals (typically more than 1 hour daily) that interfere with normal life. People with OCD often recognize their thoughts and behaviors are excessive but feel unable to stop. Being neat or organized does not mean someone has OCD."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is OCD treated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The most effective treatment for OCD is Exposure and Response Prevention (ERP), a specialized form of CBT where patients gradually face their fears without performing compulsions. ERP has success rates of 60-80%. Medications, particularly SSRIs at higher doses than used for depression, are also effective. Many people benefit from combining ERP with medication."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">

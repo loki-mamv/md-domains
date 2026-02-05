@@ -464,12 +464,14 @@
         }
 
         .topic-card.mental .topic-icon { background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); }
-        .topic-card.anxiety .topic-icon { background: linear-gradient(135deg, #81ecec 0%, #00cec9 100%); }
-        .topic-card.weight .topic-icon { background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); }
-        .topic-card.sleep .topic-icon { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
-        .topic-card.nutrition .topic-icon { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); }
-        .topic-card.nutrition .topic-icon svg { stroke: #946b00; }
-        .topic-card.fitness .topic-icon { background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%); }
+        .topic-card.glp1 .topic-icon { background: linear-gradient(135deg, #55efc4 0%, #00b894 100%); }
+        .topic-card.symptom .topic-icon { background: linear-gradient(135deg, #81ecec 0%, #00cec9 100%); }
+        .topic-card.patient .topic-icon { background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); }
+        .topic-card.hipaa .topic-icon { background: linear-gradient(135deg, #636e72 0%, #2d3436 100%); }
+        .topic-card.claims .topic-icon { background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); }
+        .topic-card.claims .topic-icon svg { stroke: #946b00; }
+        .topic-card.colonoscopy .topic-icon { background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%); }
+        .topic-card.mammogram .topic-icon { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
 
         .topic-card h3 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -871,25 +873,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://anxiety.md" class="topic-card anxiety">
-                    <div class="topic-icon">
-                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                            <line x1="12" y1="2" x2="12" y2="4"/>
-                        </svg>
-                    </div>
-                    <span class="topic-domain">anxiety.md</span>
-                    <h3>Anxiety & Stress</h3>
-                    <p>Managing worry, panic attacks, and finding calm in everyday life.</p>
-                    <span class="topic-link">
-                        Explore
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-                <a href="https://glp1.md" class="topic-card weight">
+                <a href="https://glp1.md" class="topic-card glp1">
                     <div class="topic-icon">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20V10"/>
@@ -907,15 +891,17 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://sleep.md" class="topic-card sleep">
+                <a href="https://symptom.md" class="topic-card symptom">
                     <div class="topic-icon">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
                         </svg>
                     </div>
-                    <span class="topic-domain">sleep.md</span>
-                    <h3>Sleep Health</h3>
-                    <p>Insomnia solutions, sleep hygiene, and finally getting the rest you need.</p>
+                    <span class="topic-domain">symptom.md</span>
+                    <h3>Symptom Checker</h3>
+                    <p>Understand your symptoms with evidence-based guidance on what they may mean.</p>
                     <span class="topic-link">
                         Explore
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -923,19 +909,16 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://nutrition.md" class="topic-card nutrition">
+                <a href="https://patient.md" class="topic-card patient">
                     <div class="topic-icon">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-                            <line x1="6" y1="1" x2="6" y2="4"/>
-                            <line x1="10" y1="1" x2="10" y2="4"/>
-                            <line x1="14" y1="1" x2="14" y2="4"/>
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
                         </svg>
                     </div>
-                    <span class="topic-domain">nutrition.md</span>
-                    <h3>Nutrition</h3>
-                    <p>Evidence-based dietary guidance without the fads or misinformation.</p>
+                    <span class="topic-domain">patient.md</span>
+                    <h3>Patient Rights</h3>
+                    <p>Know your rights as a patient — informed consent, records access, and advocacy.</p>
                     <span class="topic-link">
                         Explore
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -943,15 +926,67 @@
                         </svg>
                     </span>
                 </a>
-                <a href="https://fitness.md" class="topic-card fitness">
+                <a href="https://hipaa.md" class="topic-card hipaa">
+                    <div class="topic-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <span class="topic-domain">hipaa.md</span>
+                    <h3>HIPAA & Privacy</h3>
+                    <p>Your health data privacy rights explained — HIPAA rules in plain language.</p>
+                    <span class="topic-link">
+                        Explore
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://claims.md" class="topic-card claims">
+                    <div class="topic-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <span class="topic-domain">claims.md</span>
+                    <h3>Insurance Claims</h3>
+                    <p>Navigate medical billing, appeals, and denied claims with confidence.</p>
+                    <span class="topic-link">
+                        Explore
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://colonoscopy.md" class="topic-card colonoscopy">
                     <div class="topic-icon">
                         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                         </svg>
                     </div>
-                    <span class="topic-domain">fitness.md</span>
-                    <h3>Fitness</h3>
-                    <p>Movement for every body — from starting out to optimizing performance.</p>
+                    <span class="topic-domain">colonoscopy.md</span>
+                    <h3>Colonoscopy</h3>
+                    <p>Prep guides, screening timelines, and what to expect before and after.</p>
+                    <span class="topic-link">
+                        Explore
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://mammogram.md" class="topic-card mammogram">
+                    <div class="topic-icon">
+                        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span class="topic-domain">mammogram.md</span>
+                    <h3>Mammogram</h3>
+                    <p>Screening guidelines, what to expect, and understanding your results.</p>
                     <span class="topic-link">
                         Explore
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -986,11 +1021,14 @@
                 <div class="footer-col">
                     <h4>Topics</h4>
                     <ul>
-                        <li><a href="https://anxiety.md">Anxiety</a></li>
                         <li><a href="https://mental.md">Mental Health</a></li>
                         <li><a href="https://glp1.md">GLP-1 Medications</a></li>
-                        <li><a href="https://sleep.md">Sleep</a></li>
-                        <li><a href="https://nutrition.md">Nutrition</a></li>
+                        <li><a href="https://symptom.md">Symptom Checker</a></li>
+                        <li><a href="https://patient.md">Patient Rights</a></li>
+                        <li><a href="https://hipaa.md">HIPAA & Privacy</a></li>
+                        <li><a href="https://claims.md">Insurance Claims</a></li>
+                        <li><a href="https://colonoscopy.md">Colonoscopy</a></li>
+                        <li><a href="https://mammogram.md">Mammogram</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

@@ -450,7 +450,13 @@
 
         /* Split-screen mode */
         body.split-mode { padding-right: 45%; }
-        body.split-mode nav { right: 45%; }
+        body.split-mode nav { 
+            right: 45%; 
+            padding-right: 1rem;
+        }
+        body.split-mode .nav-inner {
+            max-width: 100%;
+        }
         body.split-mode .chat-panel {
             position: fixed; top: 0; right: 0; width: 45%; height: 100vh;
             background: var(--cream); border-left: 1px solid rgba(0,0,0,0.08);
@@ -487,8 +493,30 @@
         body.split-mode .chat-panel .panel-input:focus {
             outline: none; border-color: var(--sage);
         }
-        body.split-mode .hero .chat-widget .chat-messages,
-        body.split-mode .hero .chat-widget .chat-suggestions { display: none; }
+        /* Hide the entire chat widget in hero when split mode is active */
+        body.split-mode .hero .chat-widget {
+            display: none !important;
+        }
+        /* Trust cards: stack vertically (1 column) when split mode active */
+        body.split-mode .trust-cards {
+            grid-template-columns: 1fr;
+        }
+        /* Topics grid: 2 columns when split mode active */
+        body.split-mode .topics-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        /* Adjust hero to single column in split mode */
+        body.split-mode .hero-inner {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        body.split-mode .hero-content p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body.split-mode .hero-badges {
+            justify-content: center;
+        }
         .chat-close {
             display: none; position: absolute; top: 16px; right: 16px;
             width: 32px; height: 32px; border: none; background: var(--cream);
@@ -500,8 +528,9 @@
         body.split-mode .chat-close { display: flex; }
         @media (max-width: 900px) {
             body.split-mode { padding-right: 0; }
-            body.split-mode nav { right: 0; }
+            body.split-mode nav { right: 0; padding-right: 1rem; }
             body.split-mode .chat-panel { width: 100%; }
+            body.split-mode .topics-grid { grid-template-columns: 1fr; }
         }
 
         /* Trust Section */

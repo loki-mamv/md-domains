@@ -6,82 +6,140 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">
     <title>All Health Topics — thrive.md</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --sage: #4a7c6f;
+            --sage-light: #6b9b8a;
+            --sage-dark: #3d6b5f;
+            --cream: #faf9f7;
+            --warm-white: #ffffff;
+            --text-primary: #2d3436;
+            --text-secondary: #636e72;
+            --text-muted: #95a5a6;
+            --coral: #e17055;
+            --coral-light: #fab1a0;
+            --gradient-sage: linear-gradient(135deg, #4a7c6f 0%, #6b9b8a 100%);
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lift: 0 12px 48px rgba(74,124,111,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            background: #fafaf9;
-            color: #1c1917;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        /* Header */
-        header {
-            background: white;
-            border-bottom: 1px solid #e7e5e4;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        h1, h2, h3, h4 {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 600;
+            line-height: 1.2;
         }
-        .header-inner {
-            max-width: 1100px;
+
+        /* Navigation — matches homepage */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(250, 249, 247, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .nav-inner {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
         .logo {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 1.5rem;
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
             font-weight: 700;
-            color: #1c1917;
+            color: var(--sage);
             text-decoration: none;
-        }
-        .logo .dot { color: #0d9488; }
-        .back-link {
-            color: #0d9488;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
         }
-        .back-link:hover { text-decoration: underline; }
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--coral);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover { color: var(--sage); }
+        .nav-cta {
+            background: var(--gradient-sage);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lift);
+        }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 4rem 2rem 2rem;
+            padding: 8rem 2rem 2rem;
             max-width: 720px;
             margin: 0 auto;
         }
         .hero h1 {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1c1917;
+            font-size: 2.75rem;
+            color: var(--text-primary);
             margin-bottom: 0.75rem;
         }
         .hero p {
             font-size: 1.15rem;
-            color: #57534e;
+            color: var(--text-secondary);
             line-height: 1.7;
         }
         .domain-count {
             display: inline-block;
-            background: #0d94881a;
-            color: #0d9488;
+            background: rgba(74, 124, 111, 0.1);
+            color: var(--sage);
             font-weight: 600;
             font-size: 0.85rem;
             padding: 0.35rem 1rem;
             border-radius: 100px;
             margin-bottom: 1.25rem;
             letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
+            .hero { padding: 7rem 1.5rem 2rem; }
+            .hero h1 { font-size: 2rem; }
         }
 
         /* Category sections */
@@ -116,10 +174,7 @@
             fill: none;
         }
         .category-header h2 {
-            font-family: 'Source Serif 4', Georgia, serif;
             font-size: 1.5rem;
-            font-weight: 600;
-            color: #1c1917;
         }
         .category-header span.count {
             font-size: 0.8rem;
@@ -155,8 +210,8 @@
             gap: 0.35rem;
         }
         .domain-card:hover {
-            border-color: #0d9488;
-            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.1);
+            border-color: var(--sage);
+            box-shadow: 0 4px 16px rgba(74, 124, 111, 0.12);
             transform: translateY(-2px);
         }
         .domain-card .card-icon {
@@ -176,10 +231,10 @@
             fill: none;
         }
         .domain-card .domain-name {
-            font-family: 'Source Serif 4', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 700;
             font-size: 1.1rem;
-            color: #0d9488;
+            color: var(--sage);
         }
         .domain-card .domain-title {
             font-weight: 600;
@@ -214,39 +269,85 @@
         .icon-tools { background: linear-gradient(135deg, #81ecec 0%, #00cec9 100%); }
         .icon-industry { background: linear-gradient(135deg, #636e72 0%, #2d3436 100%); }
 
-        /* Footer */
+        /* Footer — matches homepage */
         footer {
-            background: #1c1917;
-            color: #a8a29e;
-            padding: 3rem 2rem;
-            text-align: center;
-            font-size: 0.9rem;
+            padding: 4rem 2rem 2rem;
+            background: var(--text-primary);
+            color: white;
         }
-        footer a {
-            color: #0d9488;
-            text-decoration: none;
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
         }
-        footer a:hover { text-decoration: underline; }
-        footer .footer-links {
+        .footer-brand h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-brand .logo-dot {
+            width: 10px; height: 10px; background: var(--coral);
+            border-radius: 50%; display: inline-block;
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem; line-height: 1.7; max-width: 300px;
+        }
+        .footer-col h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 1.5rem; color: rgba(255,255,255,0.5);
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a {
+            color: rgba(255,255,255,0.8); text-decoration: none;
+            font-size: 0.95rem; transition: color 0.2s ease;
+        }
+        .footer-col a:hover { color: white; }
+        .footer-bottom {
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .footer-legal { display: flex; gap: 2rem; }
+        .footer-legal a {
+            color: rgba(255,255,255,0.5); text-decoration: none;
+            font-size: 0.9rem; transition: color 0.2s ease;
+        }
+        .footer-legal a:hover { color: white; }
+        @media (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <a href="/thrive-homepage.html" class="logo">thrive<span class="dot">.</span>md</a>
-            <a href="/thrive-homepage.html" class="back-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back to home
+    <nav>
+        <div class="nav-inner">
+            <a href="/thrive-homepage.html" class="logo">
+                thrive<span class="logo-dot"></span>md
             </a>
+            <ul class="nav-links">
+                <li><a href="/topics.html">Health Topics</a></li>
+                <li><a href="/thrive-homepage.html#about">About Us</a></li>
+                <li><a href="/thrive-homepage.html#editorial">Our Standards</a></li>
+                <li><a href="/thrive-homepage.html#blog">Articles</a></li>
+            </ul>
+            <a href="/thrive-homepage.html#ask" class="nav-cta">Ask a Question</a>
         </div>
-    </header>
+    </nav>
 
     <section class="hero">
         <span class="domain-count">25 domains · 1 network</span>
@@ -568,13 +669,52 @@
     </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="/thrive-homepage.html">Home</a>
-            <a href="/editorial-policy.html">Editorial Policy</a>
-            <a href="/medical-review.html">Medical Review</a>
-            <a href="/blog.html">Blog</a>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>thrive<span class="logo-dot"></span>md</h3>
+                    <p>Empowering you with trustworthy health information and compassionate guidance for your wellness journey.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li><a href="https://mental.md">Mental Health</a></li>
+                        <li><a href="https://glp1.md">GLP-1 Medications</a></li>
+                        <li><a href="https://symptom.md">Symptom Checker</a></li>
+                        <li><a href="https://patient.md">Patient Rights</a></li>
+                        <li><a href="https://hipaa.md">HIPAA & Privacy</a></li>
+                        <li><a href="https://claims.md">Insurance Claims</a></li>
+                        <li><a href="https://colonoscopy.md">Colonoscopy</a></li>
+                        <li><a href="https://mammogram.md">Mammogram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/thrive-homepage.html#about">About Us</a></li>
+                        <li><a href="/editorial-policy.html">Editorial Policy</a></li>
+                        <li><a href="/medical-review.html">Medical Review</a></li>
+                        <li><a href="/thrive-homepage.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog.html">Health Articles</a></li>
+                        <li><a href="/thrive-homepage.html#newsletter">Newsletter</a></li>
+                        <li><a href="/resources.html">Crisis Resources</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 thrive.md &mdash; A trusted source for health information</p>
+                <div class="footer-legal">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/disclaimer">Medical Disclaimer</a>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2026 thrive.md &mdash; A trusted source for health information</p>
     </footer>
 
 </body>

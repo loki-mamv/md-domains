@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='-apple-system,system-ui,sans-serif' font-weight='800' font-size='16' fill='%230d9488' text-anchor='middle' letter-spacing='-0.5'%3E.md%3C/text%3E%3C/svg%3E">
+    <title>All Health Topics — thrive.md</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: #fafaf9;
+            color: #1c1917;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e7e5e4;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1c1917;
+            text-decoration: none;
+        }
+        .logo .dot { color: #0d9488; }
+        .back-link {
+            color: #0d9488;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: 0.75rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #57534e;
+            line-height: 1.7;
+        }
+        .domain-count {
+            display: inline-block;
+            background: #0d94881a;
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Category sections */
+        .categories {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+        .category {
+            margin-bottom: 3rem;
+        }
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e7e5e4;
+        }
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        .category-header h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1c1917;
+        }
+        .category-header span.count {
+            font-size: 0.8rem;
+            color: #a8a29e;
+            font-weight: 500;
+            margin-left: auto;
+        }
+
+        /* Domain grid */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 900px) { .domain-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .domain-grid { grid-template-columns: 1fr; } }
+
+        .domain-card {
+            background: white;
+            border: 1px solid #e7e5e4;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .domain-card:hover {
+            border-color: #0d9488;
+            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.1);
+            transform: translateY(-2px);
+        }
+        .domain-card .domain-name {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #0d9488;
+        }
+        .domain-card .domain-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #1c1917;
+        }
+        .domain-card .domain-desc {
+            font-size: 0.85rem;
+            color: #78716c;
+            line-height: 1.5;
+        }
+        .domain-card .domain-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            margin-top: 0.25rem;
+            width: fit-content;
+        }
+        .tag-live { background: #dcfce7; color: #166534; }
+        .tag-hub { background: #0d94881a; color: #0d9488; }
+        .tag-coming { background: #fef3c7; color: #92400e; }
+
+        /* Footer */
+        footer {
+            background: #1c1917;
+            color: #a8a29e;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #0d9488;
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="/thrive-homepage.html" class="logo">thrive<span class="dot">.</span>md</a>
+            <a href="/thrive-homepage.html" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to home
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <span class="domain-count">25 domains &middot; 1 network</span>
+        <h1>All Health Topics</h1>
+        <p>Every domain in the thrive.md network — evidence-based health information organized by category, each on its own memorable .md domain.</p>
+    </section>
+
+    <section class="categories">
+
+        <!-- Hub -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#0d94881a;">🏠</div>
+                <h2>Network Hub</h2>
+                <span class="count">1 domain</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://thrive.md" class="domain-card">
+                    <span class="domain-name">thrive.md</span>
+                    <span class="domain-title">Your Health Companion</span>
+                    <span class="domain-desc">The central hub connecting all health topics. Newsletter, resources, and curated guides.</span>
+                    <span class="domain-tag tag-hub">Hub</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mental Health -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#a29bfe20;">🧠</div>
+                <h2>Mental Health</h2>
+                <span class="count">6 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://mental.md" class="domain-card">
+                    <span class="domain-name">mental.md</span>
+                    <span class="domain-title">Mental Health Hub</span>
+                    <span class="domain-desc">Depression, therapy options, and building emotional resilience.</span>
+                    <span class="domain-tag tag-hub">Sub-Hub</span>
+                </a>
+                <a href="https://anxiety.md" class="domain-card">
+                    <span class="domain-name">anxiety.md</span>
+                    <span class="domain-title">Anxiety & Stress</span>
+                    <span class="domain-desc">Managing worry, panic attacks, and finding calm in everyday life.</span>
+                    <span class="domain-tag tag-live">Live</span>
+                </a>
+                <a href="https://depression.md" class="domain-card">
+                    <span class="domain-name">depression.md</span>
+                    <span class="domain-title">Depression</span>
+                    <span class="domain-desc">Recognizing symptoms, treatment options, and recovery support.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://bipolar.md" class="domain-card">
+                    <span class="domain-name">bipolar.md</span>
+                    <span class="domain-title">Bipolar Disorder</span>
+                    <span class="domain-desc">Understanding mood episodes, medication, and long-term management.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://ptsd.md" class="domain-card">
+                    <span class="domain-name">ptsd.md</span>
+                    <span class="domain-title">PTSD & Trauma</span>
+                    <span class="domain-desc">Trauma recovery, EMDR, and evidence-based healing approaches.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://ocd.md" class="domain-card">
+                    <span class="domain-name">ocd.md</span>
+                    <span class="domain-title">OCD</span>
+                    <span class="domain-desc">Obsessive-compulsive disorder — symptoms, ERP therapy, and coping strategies.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Weight & Metabolic -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#55efc420;">⚖️</div>
+                <h2>Weight & Metabolic Health</h2>
+                <span class="count">4 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://glp1.md" class="domain-card">
+                    <span class="domain-name">glp1.md</span>
+                    <span class="domain-title">GLP-1 Medications</span>
+                    <span class="domain-desc">Ozempic, Wegovy, Mounjaro — the science behind the new weight loss medications.</span>
+                    <span class="domain-tag tag-hub">Sub-Hub</span>
+                </a>
+                <a href="https://ozempic.md" class="domain-card">
+                    <span class="domain-name">ozempic.md</span>
+                    <span class="domain-title">Ozempic</span>
+                    <span class="domain-desc">Dosing, side effects, insurance coverage, and what to expect.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://mounjaro.md" class="domain-card">
+                    <span class="domain-name">mounjaro.md</span>
+                    <span class="domain-title">Mounjaro</span>
+                    <span class="domain-desc">Tirzepatide guide — efficacy, comparisons, and patient experiences.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://calories.md" class="domain-card">
+                    <span class="domain-name">calories.md</span>
+                    <span class="domain-title">Calories & Nutrition</span>
+                    <span class="domain-desc">Evidence-based dietary guidance without the fads or misinformation.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Chronic Conditions -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#74b9ff20;">💊</div>
+                <h2>Chronic Conditions</h2>
+                <span class="count">4 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://hypertension.md" class="domain-card">
+                    <span class="domain-name">hypertension.md</span>
+                    <span class="domain-title">Blood Pressure</span>
+                    <span class="domain-desc">Managing high blood pressure through lifestyle, diet, and medication.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://thyroid.md" class="domain-card">
+                    <span class="domain-name">thyroid.md</span>
+                    <span class="domain-title">Thyroid Health</span>
+                    <span class="domain-desc">Hypothyroidism, Hashimoto's, and thyroid condition management.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://asthma.md" class="domain-card">
+                    <span class="domain-name">asthma.md</span>
+                    <span class="domain-title">Asthma</span>
+                    <span class="domain-desc">Triggers, treatment plans, and living well with asthma.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://insomnia.md" class="domain-card">
+                    <span class="domain-name">insomnia.md</span>
+                    <span class="domain-title">Sleep & Insomnia</span>
+                    <span class="domain-desc">CBT-I, sleep hygiene, and solutions for chronic sleeplessness.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Screenings & Procedures -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#fab1a020;">🏥</div>
+                <h2>Screenings & Procedures</h2>
+                <span class="count">3 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://colonoscopy.md" class="domain-card">
+                    <span class="domain-name">colonoscopy.md</span>
+                    <span class="domain-title">Colonoscopy</span>
+                    <span class="domain-desc">Prep guides, screening timelines, and what to expect.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://mammogram.md" class="domain-card">
+                    <span class="domain-name">mammogram.md</span>
+                    <span class="domain-title">Mammogram</span>
+                    <span class="domain-desc">Screening guidelines, what to expect, and understanding results.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://mri.md" class="domain-card">
+                    <span class="domain-name">mri.md</span>
+                    <span class="domain-title">MRI Scans</span>
+                    <span class="domain-desc">What to expect, how to prepare, and reading your results.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Patient Tools & Symptoms -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#81ecec20;">🔍</div>
+                <h2>Patient Tools</h2>
+                <span class="count">3 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://symptom.md" class="domain-card">
+                    <span class="domain-name">symptom.md</span>
+                    <span class="domain-title">Symptom Checker</span>
+                    <span class="domain-desc">Understand your symptoms with evidence-based guidance.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://patient.md" class="domain-card">
+                    <span class="domain-name">patient.md</span>
+                    <span class="domain-title">Patient Rights</span>
+                    <span class="domain-desc">Informed consent, records access, and healthcare advocacy.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://supplements.md" class="domain-card">
+                    <span class="domain-name">supplements.md</span>
+                    <span class="domain-title">Supplements</span>
+                    <span class="domain-desc">Evidence-based reviews — what works, what doesn't, and what's safe.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Healthcare Industry (B2B) -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon" style="background:#636e7220;">🏢</div>
+                <h2>Healthcare Industry</h2>
+                <span class="count">4 domains</span>
+            </div>
+            <div class="domain-grid">
+                <a href="https://hipaa.md" class="domain-card">
+                    <span class="domain-name">hipaa.md</span>
+                    <span class="domain-title">HIPAA & Privacy</span>
+                    <span class="domain-desc">Health data privacy rules explained in plain language.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://claims.md" class="domain-card">
+                    <span class="domain-name">claims.md</span>
+                    <span class="domain-title">Insurance Claims</span>
+                    <span class="domain-desc">Medical billing, appeals, and navigating denied claims.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://emr.md" class="domain-card">
+                    <span class="domain-name">emr.md</span>
+                    <span class="domain-title">EMR Systems</span>
+                    <span class="domain-desc">Electronic medical records — comparisons, workflows, and best practices.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+                <a href="https://fhir.md" class="domain-card">
+                    <span class="domain-name">fhir.md</span>
+                    <span class="domain-title">FHIR & Interoperability</span>
+                    <span class="domain-desc">Healthcare data standards, APIs, and the future of health data exchange.</span>
+                    <span class="domain-tag tag-coming">Coming Soon</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/thrive-homepage.html">Home</a>
+            <a href="/editorial-policy.html">Editorial Policy</a>
+            <a href="/medical-review.html">Medical Review</a>
+            <a href="/blog.html">Blog</a>
+        </div>
+        <p>© 2026 thrive.md — A trusted source for health information</p>
+    </footer>
+
+</body>
+</html>

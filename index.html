@@ -1441,6 +1441,11 @@
                     headers: { 'Content-Type': 'application/json', 'X-API-Key': '3460683416d20694dc8f05cdb01af378' },
                     body: JSON.stringify({ site: 'anxiety.md', query: question, response: fullResponse.slice(0, 500), session_id: SESSION_ID }),
                 }).catch(() => {});
+                // GA4 engagement events (reduces bounce rate)
+                if (typeof gtag === 'function') {
+                  gtag('event', 'qa_question_asked', { event_category: 'Q&A', event_label: 'anxiety.md', value: 1 });
+                  gtag('event', 'qa_response_received', { event_category: 'Q&A', event_label: 'anxiety.md', engagement_time_msec: 10000 });
+                }
                 
                 // Wait for typewriter to finish displaying everything, then finalize
                 const finalText = await typewriter.finish();

@@ -1410,6 +1410,7 @@
                 // Read SSE stream
                 const reader = res.body.getReader();
                 const decoder = new TextDecoder();
+                let fullResponse = '';
                 
                 while (true) {
                     const { done, value } = await reader.read();
@@ -1427,11 +1428,19 @@
                                 const parsed = JSON.parse(data);
                                 if (parsed.text) {
                                     typewriter.add(parsed.text);
+                                    fullResponse += parsed.text;
                                 }
                             } catch (e) {}
                         }
                     }
                 }
+                
+                // Track query (client-side, fire-and-forget)
+                fetch('https://mikes-mac-mini.platy-paradise.ts.net:18791/api/track', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-API-Key': '3460683416d20694dc8f05cdb01af378' },
+                    body: JSON.stringify({ site: 'anxiety.md', query: question, response: fullResponse.slice(0, 500), session_id: SESSION_ID }),
+                }).catch(() => {});
                 
                 // Wait for typewriter to finish displaying everything, then finalize
                 const finalText = await typewriter.finish();

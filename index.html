@@ -1192,7 +1192,7 @@
             : 'https://md-qa.md-health.workers.dev/ask';
         
         // Generate session ID for conversation memory
-        const SESSION_ID = 'session_' + Math.random().toString(36).substr(2, 9);
+        const SESSION_ID = localStorage.getItem('md_uid') || (() => { const id = 'u_' + crypto.randomUUID(); localStorage.setItem('md_uid', id); return id; })();
         
         // Smooth typewriter effect
         class Typewriter {
